@@ -10,7 +10,7 @@ import {
   drinks,
   burgers,
   pizzas,
-  fingerFood,
+  snacks,
 } from './data/menuItems';
 import { useCartStore } from './store/cart.store';
 import { ShoppingCart, ChevronUp, ChevronDown } from 'lucide-react';
@@ -47,7 +47,7 @@ const BUTTON_CLASSES = {
 const MENU_SECTIONS = {
   PIZZA: 'pizza',
   BURGER: 'burger',
-  FINGERFOOD: 'fingerfood',
+  SNACKS: 'snacks',
   SALATE: 'salate',
   DIPS: 'dips',
   GETRAENKE: 'getraenke'
@@ -100,7 +100,7 @@ function App() {
     console.log('App: Menu items loaded:', {
       pizzas: pizzas.length,
       burgers: burgers.length,
-      fingerFood: fingerFood.length,
+      snacks: snacks.length,
       salads: salads.length,
       dips: dips.length,
       drinks: drinks.length
@@ -494,10 +494,10 @@ function App() {
               )}
 
               {renderMenuSection(
-                MENU_SECTIONS.FINGERFOOD,
-                'Finger Food',
+                MENU_SECTIONS.SNACKS,
+                'Snacks',
                 'Knusprige Snacks und Beilagen - perfekt zum Teilen oder als Beilage',
-                fingerFood
+                snacks
               )}
 
               {renderMenuSection(

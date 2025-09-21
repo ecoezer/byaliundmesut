@@ -131,8 +131,8 @@ const createBurgerSizes = (basePrice: number) => [
   { name: '250g', price: basePrice + 2.00, description: 'Doppel Patty (+2€)' }
 ];
 
-// Finger Food (New section)
-export const fingerFood: MenuItem[] = [
+// Snacks (New section)
+export const snacks: MenuItem[] = [
   {
     id: 550,
     number: "F1",

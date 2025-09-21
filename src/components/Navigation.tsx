@@ -13,7 +13,7 @@ const Navigation = () => {
   const navigationItems = [
     ['pizza', '🍕', 'Pizza'],
     ['burger', '🍔', 'Hamburger'],
-    ['fingerfood', '🍟', 'Finger Food'],
+    ['snacks', '🍟', 'Snacks'],
     ['salate', '🥗', 'Salate'],
     ['dips', '🥄', 'Dips & Soßen'],
     ['getraenke', '🥤', 'Getränke']
