@@ -1,6 +1,6 @@
-# byAliundMesut 🚕
+# byAliundMesut# 🚕
 
-A modern food delivery website for byAliundMesut with WhatsApp ordering and email notifications.
+A modern food delivery website for byAliundMesut# with WhatsApp ordering and email notifications.
 
 ## Features
 
@@ -145,4 +145,4 @@ The application supports multiple delivery zones with individual:
 
 ## License
 
-This project is proprietary software for by Mesut und Ali.
+This project is proprietary software for by Ali und Mesut#.

@@ -48,6 +48,7 @@ const Footer = () => {
             <div className="font-bold text-gray-800">🏠 FRANKFURTER STR. 7</div>
             <div className="text-sm text-gray-600">📮 38729 LUTTER AM BARENBERGE</div>
             <p className="text-xs text-gray-500 mt-1">🚗 by Mesut und Ali Lieferservice</p>
+            <p className="text-xs text-gray-500 mt-1">🚗 by Ali und Mesut# Lieferservice</p>
           </div>
         </div>
 
@@ -86,7 +87,7 @@ const Footer = () => {
             🍽️ Leckere Döner, Pizza & mehr in Lutter am Barenberge
           </div>
           <p className="text-xs text-gray-500">
-            © 2025 by Mesut und Ali 🚕 - Alle Rechte vorbehalten
+            © 2025 by Ali und Mesut# 🚕 - Alle Rechte vorbehalten
           </p>
         </div>
       </div>
