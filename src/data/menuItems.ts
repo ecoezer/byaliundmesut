@@ -126,8 +126,7 @@ export const vegetarischeGerichte: MenuItem[] = [
     number: 19,
     name: "Zigaretten Börek",
     description: "knusprige Börek-Röllchen, gefüllt mit Käse",
-    price: 7.00,
-    isSpezialitaet: true
+    price: 7.00
   },
   {
     id: 520,
