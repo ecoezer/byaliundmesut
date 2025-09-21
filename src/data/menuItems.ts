@@ -180,7 +180,104 @@ export const vegetarischeGerichte: MenuItem[] = [
 
 // Croques
 export const croques: MenuItem[] = [
-  // This section can be populated with croques later
+  {
+    id: 548,
+    number: 48,
+    name: "Brokkoli Croque",
+    description: "mit Broccoli, Zwiebeln, Paprika & Spinat",
+    price: 8.00
+  },
+  {
+    id: 549,
+    number: 49,
+    name: "Salami Croque",
+    description: "mit Salami",
+    price: 8.50
+  },
+  {
+    id: 550,
+    number: 50,
+    name: "Schinken Croque",
+    description: "mit Schinken",
+    price: 8.50
+  },
+  {
+    id: 551,
+    number: 51,
+    name: "Tonno Croque",
+    description: "mit Thunfisch & Zwiebeln",
+    price: 9.00
+  },
+  {
+    id: 552,
+    number: 52,
+    name: "Hawaii Croque",
+    description: "mit Schinken & Ananas",
+    price: 9.00
+  },
+  {
+    id: 553,
+    number: 53,
+    name: "Feta Croque",
+    description: "mit Weichkäse",
+    price: 8.50
+  },
+  {
+    id: 554,
+    number: 54,
+    name: "Mozzarella Croque",
+    description: "mit Mozzarella & frischen Tomaten",
+    price: 8.50
+  },
+  {
+    id: 555,
+    number: 55,
+    name: "Sucuk Croque",
+    description: "mit Knoblauchwurst",
+    price: 9.00
+  },
+  {
+    id: 556,
+    number: 56,
+    name: "Pute Croque",
+    description: "mit gegrilltem Putenfleisch, Zwiebeln & Mozzarella",
+    price: 9.00
+  },
+  {
+    id: 557,
+    number: 57,
+    name: "Funghi Croque",
+    description: "mit Champignons, Schinken & Weichkäse",
+    price: 9.00
+  },
+  {
+    id: 558,
+    number: 58,
+    name: "Hamburger Croque",
+    description: "mit Hamburger-Patty, Röstzwiebeln",
+    price: 9.00
+  },
+  {
+    id: 559,
+    number: 59,
+    name: "Nuggets Croque",
+    description: "mit Chicken-Nuggets & Paprika",
+    price: 9.00
+  },
+  {
+    id: 560,
+    number: 60,
+    name: "Jalapenos Croque",
+    description: "mit Schinken, Salami & Peperoni",
+    price: 9.00
+  },
+  {
+    id: 561,
+    number: 61,
+    name: "Drehspieß Croque",
+    description: "mit Fleischgericht nach Wahl: Kalb oder Hähnchen",
+    price: 9.00
+  }
 ];
 
 // Helper function to create drink sizes for soft drinks
@@ -198,56 +295,56 @@ const createBurgerSizes = (basePrice: number) => [
 // Snacks (New section)
 export const snacks: MenuItem[] = [
   {
-    id: 550,
+    id: 580,
     number: 11,
     name: "Hamburger",
     description: "125g Burger-Patty",
     price: 5.50
   },
   {
-    id: 551,
+    id: 581,
     number: 12,
     name: "Cheeseburger",
     description: "125g Burger-Patty mit Schmelzkäse",
     price: 6.00
   },
   {
-    id: 552,
+    id: 582,
     number: 13,
     name: "Currywurst & Pommes",
     description: "mit würziger Currysauce und knusprigen Pommes frites",
     price: 8.50
   },
   {
-    id: 553,
+    id: 583,
     number: 14,
     name: "Hamburger Menü",
     description: "125g Burger-Patty, Pommes frites und Getränk",
     price: 11.00
   },
   {
-    id: 554,
+    id: 584,
     number: 15,
     name: "Cheeseburger Menü",
     description: "125g Burger-Patty mit Schmelzkäse, Pommes frites und Getränk",
     price: 11.50
   },
   {
-    id: 555,
+    id: 585,
     number: 16,
     name: "Chicken-Nuggets Menü",
     description: "6 Stück mit Pommes frites & Getränk",
     price: 10.00
   },
   {
-    id: 556,
+    id: 586,
     number: 17,
     name: "Pommes frites",
     description: "",
     price: 4.00
   },
   {
-    id: 557,
+    id: 587,
     number: 18,
     name: "Chicken-Nuggets 6 Stück",
     description: "",
