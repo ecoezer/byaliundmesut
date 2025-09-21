@@ -535,213 +535,179 @@ const createPizzaSizes = (prices: { medium: number; large: number; family: numbe
 // Pizza - Updated with new Döner Pizza and updated Wunsch Pizza ingredients
 export const pizzas: MenuItem[] = [
   {
-    id: 501,
-    number: 0,
-    name: "Wunsch Pizza",
-    description: "mit 4 Zutaten nach Wahl",
-    price: 9.90,
-    allergens: "1,2,3/A,C",
-    isWunschPizza: true,
-    sizes: createPizzaSizes({ medium: 9.90, large: 11.90, family: 21.90, mega: 30.90 })
-  },
-  {
-    id: 502,
-    number: 1,
-    name: "Margherita",
+    id: 526,
+    number: 26,
+    name: "Pizza Margherita",
     description: "",
-    price: 8.90,
-    allergens: "1,2,3/A,C",
-    isPizza: true,
-    sizes: createPizzaSizes({ medium: 8.90, large: 9.90, family: 17.90, mega: 26.90 })
+    price: 9.00,
+    isPizza: true
   },
   {
-    id: 503,
-    number: 2,
-    name: "Salami",
-    description: "mit Rindersalami",
-    price: 9.90,
-    allergens: "1,2,3,4/A,C",
-    isPizza: true,
-    sizes: createPizzaSizes({ medium: 9.90, large: 11.90, family: 18.90, mega: 28.90 })
+    id: 527,
+    number: 27,
+    name: "Pizza Salami",
+    description: "mit Salami",
+    price: 10.00,
+    isPizza: true
   },
   {
-    id: 504,
-    number: 3,
-    name: "Schinken",
-    description: "mit Formfleisch-Vorderschinken",
-    price: 9.90,
-    allergens: "1,2,3,4/A,C",
-    isPizza: true,
-    sizes: createPizzaSizes({ medium: 9.90, large: 11.90, family: 18.90, mega: 28.90 })
+    id: 528,
+    number: 28,
+    name: "Pizza Schinken",
+    description: "mit Schinken",
+    price: 10.00,
+    isPizza: true
   },
   {
-    id: 505,
-    number: 4,
-    name: "Bomba",
-    description: "mit Rindersalami und Peperoni (scharf)",
-    price: 9.90,
-    allergens: "1,2,3,4/A,C",
-    isPizza: true,
-    sizes: createPizzaSizes({ medium: 9.90, large: 11.90, family: 18.90, mega: 28.90 })
+    id: 529,
+    number: 29,
+    name: "Pizza Funghi",
+    description: "mit Champignons",
+    price: 10.00,
+    isPizza: true
   },
   {
-    id: 506,
-    number: 5,
-    name: "Sucuk",
-    description: "mit Knoblauchwurst, Tomaten und Zwiebeln",
-    price: 9.90,
-    allergens: "1,2,3,4/A,C,F",
-    isPizza: true,
-    sizes: createPizzaSizes({ medium: 9.90, large: 11.90, family: 18.90, mega: 28.90 })
+    id: 530,
+    number: 30,
+    name: "Pizza Tonno",
+    description: "mit Thunfisch & Zwiebeln",
+    price: 11.00,
+    isPizza: true
   },
   {
-    id: 507,
-    number: 6,
-    name: "Casa",
-    description: "mit Rindersalami, fr. Champignons und Paprika",
-    price: 9.90,
-    allergens: "1,2,3,4/A,C",
-    isPizza: true,
-    sizes: createPizzaSizes({ medium: 9.90, large: 11.90, family: 18.90, mega: 28.90 })
+    id: 531,
+    number: 31,
+    name: "Pizza Sucuk",
+    description: "mit Knoblauchwurst",
+    price: 11.00,
+    isPizza: true
   },
   {
-    id: 508,
-    number: 7,
-    name: "Mais",
-    description: "mit Formfleisch-Vorderschinken, Mais und Sauce Hollandaise",
-    price: 9.90,
-    allergens: "1,2,3,4/A,C,F,G",
-    isPizza: true,
-    sizes: createPizzaSizes({ medium: 9.90, large: 11.90, family: 18.90, mega: 28.90 })
+    id: 532,
+    number: 32,
+    name: "Pizza Hollandaise",
+    description: "mit Hähnchenbrusfilet, Broccoli, Tomaten, Hollandaise-Soße",
+    price: 12.00,
+    isPizza: true
   },
   {
-    id: 509,
-    number: 8,
-    name: "Monopoly",
-    description: "mit Formfleisch-Vorderschinken, Rindersalami, fr. Champignons und Paprika",
-    price: 9.90,
-    allergens: "1,2,3,4/A,C",
-    isPizza: true,
-    sizes: createPizzaSizes({ medium: 9.90, large: 11.90, family: 18.90, mega: 28.90 })
+    id: 533,
+    number: 33,
+    name: "Pizza Hawaii",
+    description: "mit Ananas & Schinken",
+    price: 12.00,
+    isPizza: true
   },
   {
-    id: 510,
-    number: 9,
-    name: "Hawaii",
-    description: "mit Formfleisch-Vorderschinken und Ananas",
-    price: 9.90,
-    allergens: "1,2,3,4/A,C",
-    isPizza: true,
-    sizes: createPizzaSizes({ medium: 9.90, large: 11.90, family: 18.90, mega: 28.90 })
+    id: 534,
+    number: 34,
+    name: "Pizza Athen",
+    description: "mit Spinat & Weichkäse",
+    price: 12.00,
+    isPizza: true
   },
   {
-    id: 511,
-    number: 10,
-    name: "Parma",
-    description: "mit Original Parmaschinken, Tomaten, Mozzarella, Rucola",
-    price: 10.90,
-    allergens: "1,2,3,4/A,C",
-    isPizza: true,
-    sizes: createPizzaSizes({ medium: 10.90, large: 12.90, family: 21.90, mega: 30.90 })
+    id: 535,
+    number: 35,
+    name: "Pizza Rio",
+    description: "mit Sucuk, Weichkäse, Zwiebeln & Peperoni",
+    price: 12.50,
+    isPizza: true
   },
   {
-    id: 512,
-    number: 11,
-    name: "Italia",
-    description: "mit Formfleisch-Vorderschinken, Rindersalami, fr. Champignons",
-    price: 9.90,
-    allergens: "1,2,3,4/A,C",
-    isPizza: true,
-    sizes: createPizzaSizes({ medium: 9.90, large: 11.90, family: 18.90, mega: 28.90 })
+    id: 536,
+    number: 36,
+    name: "Calzone",
+    description: "mit 3 Zutaten nach Wahl, jede extra Zutat +1 €",
+    price: 12.00,
+    isPizza: true
   },
   {
-    id: 513,
-    number: 12,
-    name: "Chilli-Cheese",
-    description: "Chilli-Cheese Sauce, Sucuk, Jalapenos und Zwiebeln",
-    price: 9.90,
-    allergens: "1,2,3,4/A,C,F",
-    isPizza: true,
-    sizes: createPizzaSizes({ medium: 9.90, large: 11.90, family: 19.90, mega: 29.90 })
+    id: 537,
+    number: 37,
+    name: "Pizza Art Drehspieß",
+    description: "mit Fleischgericht nach Wahl & Zwiebeln",
+    price: 12.50,
+    isPizza: true
   },
   {
-    id: 514,
-    number: 13,
-    name: "Gyros",
-    description: "mit Gyros und Zwiebeln",
-    price: 9.90,
-    allergens: "1,2,3,4/A,C,G",
-    isPizza: true,
-    sizes: createPizzaSizes({ medium: 9.90, large: 11.90, family: 18.90, mega: 28.90 })
+    id: 538,
+    number: 38,
+    name: "Pizza Hamburger",
+    description: "mit Hamburger-Patty, Salat, jede extra Zutat +1 €, Burgersoße",
+    price: 12.00,
+    isPizza: true
   },
   {
-    id: 515,
-    number: 14,
-    name: "Hollandaise",
-    description: "mit Hähnchenbrust, Jalapenos und Sauce Hollandaise",
-    price: 10.90,
-    allergens: "1,2,3,4/A,C,F,G",
-    isPizza: true,
-    sizes: createPizzaSizes({ medium: 10.90, large: 12.90, family: 20.90, mega: 30.90 })
+    id: 539,
+    number: 39,
+    name: "Pizza Mozzarella",
+    description: "mit frischem Mozzarella & Tomaten",
+    price: 12.00,
+    isPizza: true
   },
   {
-    id: 516,
-    number: 15,
-    name: "Polo",
-    description: "mit Hähnchenbrust, Sucuk, Broccoli, Paprika",
-    price: 10.90,
-    allergens: "1,2,3,4/A,C,F,G",
-    isPizza: true,
-    sizes: createPizzaSizes({ medium: 10.90, large: 12.90, family: 20.90, mega: 30.90 })
+    id: 540,
+    number: 40,
+    name: "Pizza Italia",
+    description: "mit Salami, Mozzarella & frischem Basilikum",
+    price: 11.00,
+    isPizza: true
   },
   {
-    id: 517,
-    number: 16,
-    name: "Palermo",
-    description: "mit Hähnchenbrust, fr. Champignons und Paprika, Jalapenos und Sauce Hollandaise",
-    price: 10.90,
-    allergens: "1,2,3,4/A,C,F,G",
-    isPizza: true,
-    sizes: createPizzaSizes({ medium: 10.90, large: 12.90, family: 20.90, mega: 30.90 })
+    id: 541,
+    number: 41,
+    name: "Pizza Rustica",
+    description: "mit Schinken, Salami & frischen Champignons",
+    price: 11.00,
+    isPizza: true
   },
   {
-    id: 518,
-    number: 17,
-    name: "Desperado",
-    description: "mit Hähnchenbrust, fr. Paprika, Zwiebeln und Sauce Hollandaise",
-    price: 10.90,
-    allergens: "1,2,3,4/A,C,F,G",
-    isPizza: true,
-    sizes: createPizzaSizes({ medium: 10.90, large: 12.90, family: 20.90, mega: 30.90 })
+    id: 542,
+    number: 42,
+    name: "Pizza Grüne Oase",
+    description: "mit Paprika, Tomaten, Broccoli & Champignons",
+    price: 12.00,
+    isPizza: true
   },
   {
-    id: 519,
-    number: 18,
-    name: "Tonno",
-    description: "mit Thunfisch und Zwiebeln",
-    price: 9.90,
-    allergens: "1,2,3/A,C,H",
-    isPizza: true,
-    sizes: createPizzaSizes({ medium: 9.90, large: 11.90, family: 18.90, mega: 28.90 })
+    id: 543,
+    number: 43,
+    name: "Pizza Mexico",
+    description: "mit Jalapenos, Hähnchenfleisch, Mais, Paprika & Champignons",
+    price: 12.00,
+    isPizza: true
   },
   {
-    id: 520,
-    number: 19,
-    name: "Shrimps",
-    description: "mit Shrimps und Knoblauch",
-    price: 10.90,
-    allergens: "1,2,3/A,C,D",
-    isPizza: true,
-    sizes: createPizzaSizes({ medium: 10.90, large: 13.90, family: 21.90, mega: 30.90 })
+    id: 544,
+    number: 44,
+    name: "Pizza Quattro Stagioni",
+    description: "mit Schinken, Salami, Champignons & Artischocken",
+    price: 12.00,
+    isPizza: true
   },
   {
-    id: 521,
-    number: 20,
-    name: "Frutti di Mare",
-    description: "mit Meeresfrüchten und Knoblauch",
-    price: 10.90,
-    allergens: "1,2,3/A,C,D",
-    isPizza: true,
-    sizes: createPizzaSizes({ medium: 10.90, large: 13.90, family: 21.90, mega: 30.90 })
+    id: 545,
+    number: 45,
+    name: "Pizza India",
+    description: "mit Schinken, Hähnchenbrusfilet, Ananas & Currysauce",
+    price: 12.00,
+    isPizza: true
   },
+  {
+    id: 546,
+    number: 46,
+    name: "Pizza Diavolo",
+    description: "mit Salami, Champignons & Peperoni",
+    price: 12.50,
+    isPizza: true
+  },
+  {
+    id: 547,
+    number: 47,
+    name: "Pizza Brötchen",
+    description: "jede extra Zutat +1 €",
+    price: 5.00,
+    isPizza: true
+  }
 ];
