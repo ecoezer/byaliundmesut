@@ -521,7 +521,7 @@ function App() {
               {renderMenuSection(
                 MENU_SECTIONS.SALATE,
                 'Salate',
-                'Wahlweise mit Joghurt, French, Essig/Öl oder Knoblauch-Dressing',
+                'Alle Salate werden mit einem Dressing nach Wahl zubereitet!\n(z. B. Joghurt-, Balsamico- oder Essig-Öl-Dressing)',
                 salads
               )}
 

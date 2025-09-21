@@ -355,51 +355,43 @@ export const snacks: MenuItem[] = [
 // Salate (Updated with new items)
 export const salads: MenuItem[] = [
   {
-    id: 568,
-    number: 90,
-    name: "Gebackene Camembert",
-    description: "2 Stk. Mit Salat und Preiselbeeren",
-    price: 10.90,
+    id: 562,
+    number: 62,
+    name: "Bauernsalat",
+    description: "mit Eisbergsalat, Gurken, Tomaten und Zwiebeln",
+    price: 7.00,
     isSpezialitaet: true
   },
   {
-    id: 569,
-    number: 91,
-    name: "Fjord",
-    description: "mit Räucherlachs, Gemischter Salat, Rosti und Meerrettich",
-    price: 11.90,
+    id: 563,
+    number: 63,
+    name: "Hirtensalat",
+    description: "mit Eisbergsalat, Gurken, Tomaten, Zwiebeln und Feta-Käse",
+    price: 7.50,
     isSpezialitaet: true
   },
   {
-    id: 570,
-    number: 92,
-    name: "Chefsalat",
-    description: "mit Schinken und Käse",
-    price: 10.90,
-    isSpezialitaet: true
-  },
-  {
-    id: 571,
-    number: 93,
+    id: 564,
+    number: 64,
     name: "Thunfischsalat",
-    description: "mit Thunfisch und Hirtenkäse",
-    price: 10.90,
+    description: "mit Eisbergsalat, Gurken, Tomaten, Zwiebeln und Thunfisch",
+    price: 8.50,
     isSpezialitaet: true
   },
   {
-    id: 572,
-    number: 94,
-    name: "Tomaten Mozzarella",
-    description: "mit fr.Tomaten, Mozzarella, Basilikum und Olivenöl",
-    price: 10.90,
+    id: 565,
+    number: 65,
+    name: "Hähnchenbrust-Salat",
+    description: "mit Eisbergsalat, Gurken, Tomaten, Zwiebeln und gegrillter Hähnchenbrust",
+    price: 9.00,
     isSpezialitaet: true
   },
   {
-    id: 573,
-    number: 95,
-    name: "Gemischter Salat",
-    description: "",
-    price: 7.90,
+    id: 566,
+    number: 66,
+    name: "Mozzarella-Salat",
+    description: "mit Eisbergsalat, Tomaten, frischem Mozzarella und Basilikum",
+    price: 8.50,
     isSpezialitaet: true
   }
 ];
