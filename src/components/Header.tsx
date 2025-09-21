@@ -137,9 +137,9 @@ const AddressCard: React.FC = memo(() => {
         </div>
         <div className='space-y-1'>
           <p className='text-lg font-bold text-yellow-400'>
-            LADESTRASSE 3
+            FRANKFURTER STR. 7
             <br />
-            31028 GRONAU (LEINE)
+            38729 LUTTER AM BARENBERGE
           </p>
           <p className='text-xs text-gray-300 bg-gray-800 inline-block px-3 py-1 rounded-full'>
             🚗 byAliundMesut Lieferservice 🍕

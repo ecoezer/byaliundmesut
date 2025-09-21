@@ -45,9 +45,9 @@ const Footer = () => {
             </div>
           </div>
           <div className="text-center">
-            <div className="font-bold text-gray-800">🏠 LADESTRASSE 3</div>
-            <div className="text-sm text-gray-600">📮 31028 GRONAU (LEINE)</div>
-            <p className="text-xs text-gray-500 mt-1">🚗 FoodsTaxi Lieferservice</p>
+            <div className="font-bold text-gray-800">🏠 FRANKFURTER STR. 7</div>
+            <div className="text-sm text-gray-600">📮 38729 LUTTER AM BARENBERGE</div>
+            <p className="text-xs text-gray-500 mt-1">🚗 by Mesut und Ali Lieferservice</p>
           </div>
         </div>
 
@@ -83,7 +83,7 @@ const Footer = () => {
         {/* Footer Text */}
         <div className="space-y-1">
           <div className="font-medium text-gray-700">
-            🍽️ Leckere Döner, Pizza & mehr in Gronau (Leine)
+            🍽️ Leckere Döner, Pizza & mehr in Lutter am Barenberge
           </div>
           <p className="text-xs text-gray-500">
             © 2025 by Mesut und Ali 🚕 - Alle Rechte vorbehalten

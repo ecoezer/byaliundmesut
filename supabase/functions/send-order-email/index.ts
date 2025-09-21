@@ -223,7 +223,7 @@ function generateEmailHTML(orderData: OrderData): string {
             Bestellung eingegangen am ${new Date().toLocaleString('de-DE')}
           </p>
           <p style="margin: 8px 0 0 0; color: #6b7280; font-size: 12px;">
-            by Mesut und Ali 🚕 | Ladestraße 3, 31028 Gronau (Leine)
+            by Mesut und Ali 🚕 | Frankfurter Str. 7, 38729 Lutter am Barenberge
           </p>
         </div>
       </div>
