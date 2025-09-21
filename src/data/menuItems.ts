@@ -447,91 +447,91 @@ export const drinks: MenuItem[] = [
   // Soft drinks - all 0,33 L
   {
     id: 100,
-    number: 100,
+    number: "",
     name: "Coca-Cola",
     description: "0,33 L",
     price: 2.00
   },
   {
     id: 101,
-    number: 101,
+    number: "",
     name: "Coca-Cola Zero",
     description: "0,33 L",
     price: 2.00
   },
   {
     id: 102,
-    number: 102,
+    number: "",
     name: "Fanta Orange",
     description: "0,33 L",
     price: 2.00
   },
   {
     id: 103,
-    number: 103,
+    number: "",
     name: "Fanta Exotic",
     description: "0,33 L",
     price: 2.00
   },
   {
     id: 104,
-    number: 104,
+    number: "",
     name: "Sprite",
     description: "0,33 L",
     price: 2.00
   },
   {
     id: 105,
-    number: 105,
+    number: "",
     name: "Mezzo-mix",
     description: "0,33 L",
     price: 2.00
   },
   {
     id: 106,
-    number: 106,
+    number: "",
     name: "Apfelschorle",
     description: "0,33 L",
     price: 2.00
   },
   {
     id: 107,
-    number: 107,
+    number: "",
     name: "Eistee Pfirsich",
     description: "0,33 L",
     price: 2.00
   },
   {
     id: 108,
-    number: 108,
+    number: "",
     name: "Capri-Sonne",
     description: "0,20 L",
     price: 1.50
   },
   {
     id: 109,
-    number: 109,
+    number: "",
     name: "Ayran",
     description: "0,25 L",
     price: 1.50
   },
   {
     id: 110,
-    number: 110,
+    number: "",
     name: "Wasser",
     description: "0,33 L",
     price: 2.00
   },
   {
     id: 111,
-    number: 111,
+    number: "",
     name: "Bier",
     description: "0,33 L",
     price: 2.00
   },
   {
     id: 112,
-    number: 112,
+    number: "",
     name: "Alkoholfreies Bier",
     description: "0,33 L",
     price: 2.00
