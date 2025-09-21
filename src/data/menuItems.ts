@@ -444,88 +444,97 @@ export const dips: MenuItem[] = [
 
 // Getränke (Drinks) - Updated with size options for soft drinks
 export const drinks: MenuItem[] = [
-  // Soft drinks with size options
+  // Soft drinks - all 0,33 L
   {
-    id: 10,
+    id: 100,
     number: 100,
     name: "Coca-Cola",
-    description: "Wählen Sie Ihre gewünschte Größe",
-    price: 2.20,
-    sizes: createDrinkSizes(2.20)
+    description: "0,33 L",
+    price: 2.00
   },
   {
-    id: 11,
-    number: 100,
-    name: "Coca-Cola Light",
-    description: "Wählen Sie Ihre gewünschte Größe",
-    price: 2.20,
-    sizes: createDrinkSizes(2.20)
-  },
-  {
-    id: 12,
-    number: 100,
-    name: "Fanta Orange",
-    description: "Wählen Sie Ihre gewünschte Größe",
-    price: 2.20,
-    sizes: createDrinkSizes(2.20)
-  },
-  {
-    id: 13,
-    number: 100,
-    name: "Sprite",
-    description: "Wählen Sie Ihre gewünschte Größe",
-    price: 2.20,
-    sizes: createDrinkSizes(2.20)
-  },
-  {
-    id: 18,
+    id: 101,
     number: 101,
+    name: "Coca-Cola Zero",
+    description: "0,33 L",
+    price: 2.00
+  },
+  {
+    id: 102,
+    number: 102,
+    name: "Fanta Orange",
+    description: "0,33 L",
+    price: 2.00
+  },
+  {
+    id: 103,
+    number: 103,
+    name: "Fanta Exotic",
+    description: "0,33 L",
+    price: 2.00
+  },
+  {
+    id: 104,
+    number: 104,
+    name: "Sprite",
+    description: "0,33 L",
+    price: 2.00
+  },
+  {
+    id: 105,
+    number: 105,
+    name: "Mezzo-mix",
+    description: "0,33 L",
+    price: 2.00
+  },
+  {
+    id: 106,
+    number: 106,
+    name: "Apfelschorle",
+    description: "0,33 L",
+    price: 2.00
+  },
+  {
+    id: 107,
+    number: 107,
+    name: "Eistee Pfirsich",
+    description: "0,33 L",
+    price: 2.00
+  },
+  {
+    id: 108,
+    number: 108,
     name: "Capri-Sonne",
     description: "0,20 L",
-    price: 1.00
+    price: 1.50
   },
   {
-    id: 562,
-    number: 102,
-    name: "Becks oder Herrenhäuser",
-    description: "0,3 L",
-    price: 2.40,
-    isBeerSelection: true
+    id: 109,
+    number: 109,
+    name: "Ayran",
+    description: "0,25 L",
+    price: 1.50
   },
   {
-    id: 563,
-    number: 103,
-    name: "Chianti (Italienische Rotwein)",
-    description: "0,7 L",
-    price: 9.00
+    id: 110,
+    number: 110,
+    name: "Wasser",
+    description: "0,33 L",
+    price: 2.00
   },
   {
-    id: 564,
-    number: 104,
-    name: "Merlot (Italienische Rotwein)",
-    description: "1 L",
-    price: 11.00
+    id: 111,
+    number: 111,
+    name: "Bier",
+    description: "0,33 L",
+    price: 2.00
   },
   {
-    id: 565,
-    number: 105,
-    name: "Suave (Italienischer Weißwein)",
-    description: "0,7 L",
-    price: 9.00
-  },
-  {
-    id: 566,
-    number: 106,
-    name: "Chardonney (Italienische Weißwein)",
-    description: "1 L",
-    price: 11.00
-  },
-  {
-    id: 567,
-    number: 107,
-    name: "Vodka Gorbatschow",
-    description: "0,7 L",
-    price: 16.00
+    id: 112,
+    number: 112,
+    name: "Alkoholfreies Bier",
+    description: "0,33 L",
+    price: 2.00
   }
 ];
 
