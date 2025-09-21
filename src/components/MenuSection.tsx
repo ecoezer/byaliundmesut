@@ -374,9 +374,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ title, description, subTitle,
   if (!items || items.length === 0) {
     return (
       <section className="mb-8">
-        <div className="text-center py-8">
-          <p className="text-gray-500">Keine Artikel in dieser Kategorie verfügbar.</p>
-        </div>
+        <div className="text-center py-8"></div>
       </section>
     );
   }
