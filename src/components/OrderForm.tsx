@@ -728,7 +728,6 @@ const OrderForm: React.FC<OrderFormProps> = ({ orderItems, onRemoveItem, onUpdat
       }
 
       const whatsappURL = `https://wa.me/+4915259630500?text=${encodeURIComponent(messageText)}`;
-      const whatsappURL = `https://wa.me/+4915771459166?text=${encodeURIComponent(messageText)}`;
       
       // Enhanced mobile detection and WhatsApp opening
       const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
