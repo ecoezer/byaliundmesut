@@ -727,7 +727,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ orderItems, onRemoveItem, onUpdat
         messageText += `📝 Anmerkung: ${data.note}\n`;
       }
 
-      const whatsappURL = `https://wa.me/+4915259630500?text=${encodeURIComponent(messageText)}`;
+      const whatsappURL = `https://wa.me/+4915771459166?text=${encodeURIComponent(messageText)}`;
       
       // Enhanced mobile detection and WhatsApp opening
       const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -776,8 +776,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ orderItems, onRemoveItem, onUpdat
           } catch (fallbackError) {
             console.error('All WhatsApp opening methods failed:', fallbackError);
             alert('WhatsApp konnte nicht geöffnet werden. Bitte rufen Sie uns direkt an: 01525 9630500');
-            alert('WhatsApp konnte nicht geöffnet werden. Bitte rufen Sie uns direkt an: 01577 1459166');
-          }
+          alert('WhatsApp konnte nicht geöffnet werden. Bitte rufen Sie uns direkt an: 01577 1459166');
         }
       } else {
         // For desktop, use window.open
@@ -787,7 +786,6 @@ const OrderForm: React.FC<OrderFormProps> = ({ orderItems, onRemoveItem, onUpdat
     } catch (error) {
       console.error('Error submitting order:', error);
       // Show user-friendly error message
-      alert('Es gab ein Problem beim Senden der Bestellung. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an: 01525 9630500');
       alert('Es gab ein Problem beim Senden der Bestellung. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an: 01577 1459166');
     } finally {
       setIsSubmitting(false);
