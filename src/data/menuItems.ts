@@ -391,7 +391,7 @@ export const drinks: MenuItem[] = [
 ];
 
 // Hamburger (Burgers) - Completely updated with new items and patty size options
-export const burgers: MenuItem[] = [
+export const fleischgerichte: MenuItem[] = [
   {
     id: 529,
     number: 40,
