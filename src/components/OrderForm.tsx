@@ -231,7 +231,7 @@ const OrderItemComponent = memo<{
         )}
         {item.selectedExtras && item.selectedExtras.length > 0 && (
           <span className="text-xs text-purple-600 ml-1 sm:ml-2 block">
-            Extras: {item.selectedExtras.join(', ')} (+{(item.selectedExtras.length * 1.50).toFixed(2)}€)
+            Extras: {item.selectedExtras.join(', ')} (+{(item.selectedExtras.length * 1.00).toFixed(2)}€)
           </span>
         )}
       </p>

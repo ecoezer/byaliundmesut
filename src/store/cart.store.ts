@@ -66,9 +66,9 @@ export const useCartStore = create<CartState>()(
               itemToAdd.price = selectedSize.price;
             }
             
-            // Add extras cost (each extra is €1.50)
+            // Add extras cost (each extra is €1.00)
             if (selectedExtras && selectedExtras.length > 0) {
-              itemToAdd.price += selectedExtras.length * 1.50;
+              itemToAdd.price += selectedExtras.length * 1.00;
             }
             
             currentItems.push({ 

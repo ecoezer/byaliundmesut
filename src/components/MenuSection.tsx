@@ -261,7 +261,7 @@ const ItemModal: React.FC<ItemModalProps> = memo(({ item, isOpen, onClose, onAdd
             {(item.isPizza || item.isWunschPizza) && (
               <div className="space-y-4">
                 <h4 className="font-semibold text-gray-900 text-lg">
-                  Extras hinzufügen (je +1,50€)
+                  Extras hinzufügen (je +1,00€)
                 </h4>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-80 overflow-y-auto ingredients-scroll">
                   {pizzaExtras.map((extra) => (
@@ -280,7 +280,7 @@ const ItemModal: React.FC<ItemModalProps> = memo(({ item, isOpen, onClose, onAdd
                 </div>
                 {selectedExtras.length > 0 && (
                   <p className="text-sm text-gray-600">
-                    Extras: +{(selectedExtras.length * 1.50).toFixed(2).replace('.', ',')} €
+                    Extras: +{(selectedExtras.length * 1.00).toFixed(2).replace('.', ',')} €
                   </p>
                 )}
               </div>
@@ -311,7 +311,7 @@ const ItemModal: React.FC<ItemModalProps> = memo(({ item, isOpen, onClose, onAdd
               )}
               {selectedExtras.length > 0 && (
                 <div className="text-sm text-purple-600">
-                  Extras: {selectedExtras.join(', ')} (+{(selectedExtras.length * 1.50).toFixed(2).replace('.', ',')}€)
+                  Extras: {selectedExtras.join(', ')} (+{(selectedExtras.length * 1.00).toFixed(2).replace('.', ',')}€)
                 </div>
               )}
               <div className="text-xl font-bold text-orange-600 pt-2 border-t">
