@@ -537,6 +537,7 @@ function App() {
               <div id={MENU_SECTIONS.GETRAENKE} className='scroll-mt-[6.5rem]'>
                 <MenuSection
                   title='Getränke'
+                  description='Der Verkauf von alkoholischen Getränken erfolgt gemäß dem Jugendschutzgesetz (JuSchG) nur an Personen ab 18 Jahren. Bitte halten Sie einen gültigen Ausweis bereit!'
                   items={drinks}
                   bgColor='bg-orange-500'
                   onAddToOrder={memoizedAddItem}
