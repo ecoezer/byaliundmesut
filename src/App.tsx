@@ -50,6 +50,7 @@ const MENU_SECTIONS = {
   PIZZA: 'pizza',
   FLEISCHGERICHTE: 'fleischgerichte',
   SNACKS: 'snacks',
+  VEGETARISCHE_GERICHTE: 'vegetarische-gerichte',
   SALATE: 'salate',
   DIPS: 'dips',
   GETRAENKE: 'getraenke'
@@ -496,7 +497,7 @@ function App() {
               )}
 
               {renderMenuSection(
-                MENU_SECTIONS.VEGETARISCHE,
+                MENU_SECTIONS.VEGETARISCHE_GERICHTE,
                 'Vegetarische Gerichte',
                 'Leckere vegetarische Pizzen und Gerichte ohne Fleisch',
                 vegetarischeGerichte
