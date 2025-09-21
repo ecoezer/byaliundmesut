@@ -90,9 +90,9 @@ const ItemModal: React.FC<ItemModalProps> = memo(({ item, isOpen, onClose, onAdd
   }, [item, selectedSize, selectedIngredients, selectedExtras, selectedPastaType, selectedSauce, onAddToOrder, onClose]);
 
   const getCurrentPrice = useCallback(() => {
-    let price = selectedSize ? selectedSize.price : item.price;
-    price += selectedExtras.length * 1.00;
-    return price;
+    const basePrice = selectedSize ? selectedSize.price : item.price;
+    const extrasPrice = selectedExtras.length * 1.00;
+    return basePrice + extrasPrice;
   }, [selectedSize, selectedExtras, item.price]);
 
   const canAddToOrder = useCallback(() => {

@@ -116,9 +116,19 @@ const OrderForm: React.FC<OrderFormProps> = ({
   const watchDeliveryZone = watch('deliveryZone');
   const watchDeliveryTime = watch('deliveryTime');
 
+  // Helper function to calculate item price including extras
+  const calculateItemPrice = useCallback((item: OrderItem) => {
+    let basePrice = item.selectedSize ? item.selectedSize.price : item.menuItem.price;
+    const extrasPrice = (item.selectedExtras?.length || 0) * 1.00;
+    return basePrice + extrasPrice;
+  }, []);
+
   // Calculate totals
   const { subtotal, deliveryFee, total, canOrder, minOrderMessage } = useMemo(() => {
-    const subtotal = orderItems.reduce((sum, item) => sum + (item.menuItem.price * item.quantity), 0);
+    const subtotal = orderItems.reduce((sum, item) => {
+      const itemPrice = calculateItemPrice(item);
+      return sum + (itemPrice * item.quantity);
+    }, 0);
     
     let deliveryFee = 0;
     let canOrder = true;
@@ -138,7 +148,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
     const total = subtotal + deliveryFee;
 
     return { subtotal, deliveryFee, total, canOrder, minOrderMessage };
-  }, [orderItems, watchOrderType, watchDeliveryZone]);
+  }, [orderItems, watchOrderType, watchDeliveryZone, calculateItemPrice]);
 
   // Generate WhatsApp message
   const generateWhatsAppMessage = useCallback((data: OrderFormData) => {
@@ -179,10 +189,10 @@ const OrderForm: React.FC<OrderFormProps> = ({
       }
       
       if (item.selectedExtras && item.selectedExtras.length > 0) {
-        itemText += ` - Extras: ${item.selectedExtras.join(', ')} (+${(item.selectedExtras.length * 1.00).toFixed(2)}€)`;
+        itemText += ` - Extras: ${item.selectedExtras.join(', ')} (+${(item.selectedExtras.length * 1.00).toFixed(2).replace('.', ',')}€)`;
       }
       
-      const itemTotal = (item.menuItem.price * item.quantity).toFixed(2).replace('.', ',');
+      const itemTotal = (calculateItemPrice(item) * item.quantity).toFixed(2).replace('.', ',');
       itemText += ` = ${itemTotal} €`;
       
       message += `• ${itemText}\n`;
@@ -390,7 +400,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                   )}
                   
                   <p className="text-sm font-bold text-orange-600 mt-2">
-                    {(item.menuItem.price * item.quantity).toFixed(2).replace('.', ',')} €
+                    {(calculateItemPrice(item) * item.quantity).toFixed(2).replace('.', ',')} €
                   </p>
                 </div>
                 

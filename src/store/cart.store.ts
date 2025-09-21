@@ -60,19 +60,8 @@ export const useCartStore = create<CartState>()(
               quantity: currentItems[existingItemIndex].quantity + 1
             };
           } else {
-            // Create new item with selected size price if applicable
-            const itemToAdd = { ...menuItem };
-            if (selectedSize) {
-              itemToAdd.price = selectedSize.price;
-            }
-            
-            // Add extras cost (each extra is €1.00)
-            if (selectedExtras && selectedExtras.length > 0) {
-              itemToAdd.price += selectedExtras.length * 1.00;
-            }
-            
             currentItems.push({ 
-              menuItem: itemToAdd, 
+              menuItem: menuItem, 
               quantity: 1,
               selectedSize,
               selectedIngredients: selectedIngredients || [],
