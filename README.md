@@ -145,4 +145,4 @@ The application supports multiple delivery zones with individual:
 
 ## License
 
-This project is proprietary software for byAliundMesut.
+This project is proprietary software for by Mesut und Ali.

@@ -86,7 +86,7 @@ const Footer = () => {
             🍽️ Leckere Döner, Pizza & mehr in Gronau (Leine)
           </div>
           <p className="text-xs text-gray-500">
-            © 2025 byAliundMesut 🚕 - Alle Rechte vorbehalten
+            © 2025 by Mesut und Ali 🚕 - Alle Rechte vorbehalten
           </p>
         </div>
       </div>

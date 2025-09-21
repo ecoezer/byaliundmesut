@@ -186,7 +186,7 @@ const Header: React.FC = memo(() => {
       <div className='container mx-auto px-3 sm:px-4 py-3 sm:py-6 flex flex-col items-center max-w-5xl'>
         <h1 className='text-2xl sm:text-3xl font-bold tracking-tighter mb-4 text-gray-900 relative animate-fade-in text-center'>
           <span className='relative'>
-            <span>byAliundMesut</span>
+            <span>by Mesut und Ali</span>
             <span className='absolute -bottom-1 left-0 w-full h-1 bg-yellow-200 transform -skew-x-12' aria-hidden="true" />
           </span>
           <span className='text-yellow-500 relative ml-2'>
