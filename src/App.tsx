@@ -31,8 +31,8 @@ const SCROLL_CONFIG = {
 };
 
 const CONTACT_INFO = {
-  PHONE: '01525 9630500',
-  WHATSAPP_URL: 'https://wa.me/+4915259630500'
+  PHONE: '01577 1459166',
+  WHATSAPP_URL: 'https://wa.me/+4915771459166'
 };
 
 const CART_SELECTORS = [

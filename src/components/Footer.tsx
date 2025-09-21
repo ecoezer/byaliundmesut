@@ -3,7 +3,7 @@ import { MapPin, Phone, Heart } from 'lucide-react';
 
 const Footer = () => {
   const [copied, setCopied] = useState(false);
-  const phoneNumber = '+4915259630500';
+  const phoneNumber = '+4915771459166';
 
   const handleWhatsApp = async (e) => {
     e.preventDefault();
@@ -63,7 +63,7 @@ const Footer = () => {
             </div>
             <div>
               <div className="text-xs font-medium">💬 WhatsApp & Anrufen</div>
-              <div className="font-bold text-lg">01525 9630500</div>
+              <div className="font-bold text-lg">01577 1459166</div>
             </div>
           </a>
           {copied && (
@@ -86,7 +86,7 @@ const Footer = () => {
             🍽️ Leckere Döner, Pizza & mehr in Gronau (Leine)
           </div>
           <p className="text-xs text-gray-500">
-            © 2025 FoodsTaxi-Gronau 🚕 - Alle Rechte vorbehalten
+            © 2025 byAliundMesut 🚕 - Alle Rechte vorbehalten
           </p>
         </div>
       </div>
