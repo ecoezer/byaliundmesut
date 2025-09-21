@@ -399,46 +399,46 @@ export const salads: MenuItem[] = [
 // Dips (Saucen) - Updated with new structure and pricing
 export const dips: MenuItem[] = [
   {
-    id: 201,
-    number: "201",
-    name: "Mayo",
+    id: 567,
+    number: "67",
+    name: "Tzatziki",
     description: "",
-    price: 1.50
+    price: 2.00
   },
   {
-    id: 202,
-    number: "202",
+    id: 568,
+    number: "68",
+    name: "Chili-Sauce",
+    description: "",
+    price: 2.00
+  },
+  {
+    id: 569,
+    number: "69",
+    name: "Kräutersoße",
+    description: "",
+    price: 2.00
+  },
+  {
+    id: 570,
+    number: "70",
+    name: "Curry Sauce",
+    description: "",
+    price: 2.00
+  },
+  {
+    id: 571,
+    number: "71",
     name: "Ketchup",
     description: "",
-    price: 1.50
+    price: 1.00
   },
   {
-    id: 203,
-    number: "203",
-    name: "Knobi",
+    id: 572,
+    number: "72",
+    name: "Mayonnaise",
     description: "",
-    price: 1.50
-  },
-  {
-    id: 204,
-    number: "204",
-    name: "Hollandaise",
-    description: "",
-    price: 1.50
-  },
-  {
-    id: 205,
-    number: "205",
-    name: "Chilli",
-    description: "",
-    price: 1.50
-  },
-  {
-    id: 206,
-    number: "206",
-    name: "BBQ",
-    description: "",
-    price: 1.50
+    price: 1.00
   }
 ];
 
