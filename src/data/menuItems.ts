@@ -145,73 +145,59 @@ const createBurgerSizes = (basePrice: number) => [
 export const snacks: MenuItem[] = [
   {
     id: 550,
-    number: "F1",
-    name: "Mozzarella Stick",
-    description: "6 Stk.",
-    price: 5.90
+    number: 11,
+    name: "Hamburger",
+    description: "125g Burger-Patty",
+    price: 5.50
   },
   {
     id: 551,
-    number: "F2",
-    name: "Chicken Nuggets",
-    description: "8 Stk.",
+    number: 12,
+    name: "Cheeseburger",
+    description: "125g Burger-Patty mit Schmelzkäse",
     price: 6.00
   },
   {
     id: 552,
-    number: "F3",
-    name: "Crispy Chicken Fingers",
-    description: "6 Stk.",
-    price: 8.90
+    number: 13,
+    name: "Currywurst & Pommes",
+    description: "mit würziger Currysauce und knusprigen Pommes frites",
+    price: 8.50
   },
   {
     id: 553,
-    number: "F4",
-    name: "Chili Cheese Nuggets",
-    description: "8 Stk.",
-    price: 5.90
+    number: 14,
+    name: "Hamburger Menü",
+    description: "125g Burger-Patty, Pommes frites und Getränk",
+    price: 11.00
   },
   {
     id: 554,
-    number: "F5",
-    name: "Pommes Frites",
+    number: 15,
+    name: "Cheeseburger Menü",
+    description: "125g Burger-Patty mit Schmelzkäse, Pommes frites und Getränk",
+    price: 11.50
+  },
+  {
+    id: 555,
+    number: 16,
+    name: "Chicken-Nuggets Menü",
+    description: "6 Stück mit Pommes frites & Getränk",
+    price: 10.00
+  },
+  {
+    id: 556,
+    number: 17,
+    name: "Pommes frites",
     description: "",
     price: 4.00
   },
   {
-    id: 555,
-    number: "F6",
-    name: "Twister Pommes",
-    description: "",
-    price: 4.50
-  },
-  {
-    id: 556,
-    number: "F7",
-    name: "Wedges",
-    description: "",
-    price: 4.50
-  },
-  {
     id: 557,
-    number: "F8",
-    name: "Süßkartoffel",
+    number: 18,
+    name: "Chicken-Nuggets 6 Stück",
     description: "",
-    price: 5.00
-  },
-  {
-    id: 558,
-    number: "F9",
-    name: "Onion Rings",
-    description: "",
-    price: 5.90
-  },
-  {
-    id: 559,
-    number: "F10",
-    name: "Rosti",
-    description: "4 Stk.",
-    price: 5.90
+    price: 6.00
   }
 ];
 

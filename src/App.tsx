@@ -491,7 +491,7 @@ function App() {
               {renderMenuSection(
                 MENU_SECTIONS.SNACKS,
                 'Snacks',
-                'Knusprige Snacks und Beilagen - perfekt zum Teilen oder als Beilage',
+                'Alle Burger werden mit frischem Salat, Ketchup und Burger-Dressing serviert.',
                 snacks
               )}
 
