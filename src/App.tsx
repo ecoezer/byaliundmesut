@@ -480,17 +480,10 @@ function App() {
           <div className='grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8'>
             <div className='lg:col-span-7 xl:col-span-8 space-y-4'>
               {renderMenuSection(
-                MENU_SECTIONS.PIZZA,
-                'Pizza',
-                'Alle Pizzen werden mit Tomatensoße und Käse zubereitet. Wählen Sie Ihre gewünschte Größe.',
-                pizzas
-              )}
-
-              {renderMenuSection(
-                MENU_SECTIONS.BURGER,
-                'Döner',
+                MENU_SECTIONS.FLEISCHGERICHTE,
+                'Fleischgerichte',
                 '%100 RINDERFLEISCH-PATTY INKL. PORTION POMMES. Alle Burger sind mit Salat, Tomaten, und dänische Gurken belegt. Alle Burger werden wahlweise mit 125g oder 250g (+2€) Patty zubereitet.',
-                burgers
+                fleischgerichte
               )}
 
               {renderMenuSection(
@@ -498,6 +491,27 @@ function App() {
                 'Snacks',
                 'Knusprige Snacks und Beilagen - perfekt zum Teilen oder als Beilage',
                 snacks
+              )}
+
+              {renderMenuSection(
+                MENU_SECTIONS.VEGETARISCHE,
+                'Vegetarische Gerichte',
+                'Leckere vegetarische Pizzen und Gerichte ohne Fleisch',
+                vegetarischeGerichte
+              )}
+
+              {renderMenuSection(
+                MENU_SECTIONS.PIZZA,
+                'Pizza',
+                'Klassische Pizzen mit Fleisch - Alle Pizzen werden mit Tomatensoße und Käse zubereitet. Wählen Sie Ihre gewünschte Größe.',
+                pizzas
+              )}
+
+              {renderMenuSection(
+                MENU_SECTIONS.CROQUES,
+                'Croques',
+                'Überbackene Sandwiches - warm und knusprig serviert',
+                croques
               )}
 
               {renderMenuSection(
