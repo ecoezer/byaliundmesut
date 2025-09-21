@@ -405,45 +405,82 @@ export const fleischgerichte: MenuItem[] = [
   {
     id: 529,
     number: 40,
-    name: "Cheese Burger",
-    description: "mit Burgersauce und Cheddar°",
-    price: 12.00,
-    allergens: "A,C",
-    sizes: createBurgerSizes(12.00)
+    name: "Fleischgericht Tasche",
+    description: "mit Fleischgericht nach Wahl: Kalb oder Hähnchen im Fladenbrot, gemischtem Salat & Soße",
+    price: 7.50,
+    isSpezialitaet: true
   },
   {
     id: 530,
     number: 41,
-    name: "Texas Bacon Burger",
-    description: "mit Cheddar°, BBQ sauce, Bacon, Zwiebeln",
-    price: 12.00,
-    allergens: "A,C",
-    sizes: createBurgerSizes(12.00)
+    name: "Fleischgericht Dürüm",
+    description: "mit Fleischgericht nach Wahl: Kalb oder Hähnchen, gemischtem Salat & Soße",
+    price: 8.50,
+    isSpezialitaet: true
   },
   {
     id: 531,
     number: 42,
-    name: "Chilli Cheese Burger",
-    description: "mit Chilli-Cheesesauce¹,³,⁴, Jalapenos und Cheddar°",
-    price: 12.00,
-    allergens: "A,C",
-    sizes: createBurgerSizes(12.00)
+    name: "Fleischgericht Box",
+    description: "mit Fleischgericht nach Wahl: Kalb oder Hähnchen, Pommes frites & Soße",
+    price: 7.50,
+    isSpezialitaet: true
   },
   {
     id: 532,
     number: 43,
-    name: "Crispy Chicken Burger",
-    description: "mit %100 Chicken-Patty, mayonnaise und Burgersauce",
-    price: 12.00,
-    sizes: createBurgerSizes(12.00)
+    name: "Fleischgericht Teller (mit Pommes)",
+    description: "mit Fleischgericht nach Wahl: Kalb oder Hähnchen, Pommes frites oder Bulgur & Soße",
+    price: 13.50,
+    isSpezialitaet: true
   },
   {
     id: 533,
     number: 44,
-    name: "Crispy Chilli-Chicken Burger",
-    description: "mit %100 Chicken-Patty, Chilli-Cheesesauce¹,³,⁴, Cheddar° und Jalapenos",
-    price: 12.00,
-    sizes: createBurgerSizes(12.00)
+    name: "Fleischgericht (mit Salat)",
+    description: "mit Fleischgericht nach Wahl: Kalb oder Hähnchen, Salat & Soße",
+    price: 13.50,
+    isSpezialitaet: true
+  },
+  {
+    id: 534,
+    number: 45,
+    name: "Sucuk Tasche",
+    description: "mit türkischer Knoblauchwurst im Fladenbrot, mit gemischtem Salat & Soße",
+    price: 9.00,
+    isSpezialitaet: true
+  },
+  {
+    id: 535,
+    number: 46,
+    name: "Sucuk Teller",
+    description: "mit türkischer Knoblauchwurst mit Bulgur oder Pommes, mit gemischtem Salat & Soße",
+    price: 13.50,
+    isSpezialitaet: true
+  },
+  {
+    id: 536,
+    number: 47,
+    name: "Lahmacun Salat",
+    description: "frischer Lahmacun gefüllt mit Lahmacun & Soße",
+    price: 6.00,
+    isSpezialitaet: true
+  },
+  {
+    id: 537,
+    number: 48,
+    name: "Lahmacun Kalb oder Hähnchen",
+    description: "Fleischgericht nach Wahl: Kalb oder Hähnchen mit gemischtem Salat & Soße",
+    price: 7.00,
+    isSpezialitaet: true
+  },
+  {
+    id: 538,
+    number: 49,
+    name: "Lahmacun Weichkäse",
+    description: "mit Weichkäse, gemischtem Salat & Soße",
+    price: 7.00,
+    isSpezialitaet: true
   }
 ];
 
