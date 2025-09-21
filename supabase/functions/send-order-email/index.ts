@@ -141,7 +141,7 @@ function generateEmailHTML(orderData: OrderData): string {
         <!-- Header -->
         <div style="background: linear-gradient(135deg, #ff6b35, #f7931e); color: white; padding: 24px; border-radius: 8px 8px 0 0; text-align: center;">
           <h1 style="margin: 0; font-size: 24px; font-weight: bold;">🍕 Neue Bestellung</h1>
-          <p style="margin: 8px 0 0 0; opacity: 0.9;">FoodsTaxi-Gronau 🚕</p>
+          <p style="margin: 8px 0 0 0; opacity: 0.9;">byAliundMesut 🚕</p>
         </div>
 
         <!-- Customer Info -->
@@ -223,7 +223,7 @@ function generateEmailHTML(orderData: OrderData): string {
             Bestellung eingegangen am ${new Date().toLocaleString('de-DE')}
           </p>
           <p style="margin: 8px 0 0 0; color: #6b7280; font-size: 12px;">
-            FoodsTaxi-Gronau 🚕 | Ladestraße 3, 31028 Gronau (Leine)
+            byAliundMesut 🚕 | Ladestraße 3, 31028 Gronau (Leine)
           </p>
         </div>
       </div>
@@ -293,6 +293,7 @@ Deno.serve(async (req: Request) => {
       },
       body: JSON.stringify({
         from: 'FoodsTaxi-Gronau <noreply@foodstaxi-gronau.de>',
+        from: 'byAliundMesut <noreply@byaliundmesut.de>',
         to: [restaurantEmail],
         subject: `🍕 Neue Bestellung von ${orderData.name} - ${orderData.total.toFixed(2).replace('.', ',')} €`,
         html: emailHTML,

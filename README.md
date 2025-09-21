@@ -29,7 +29,7 @@ A modern food delivery website for byAliundMesut with WhatsApp ordering and emai
 
 ```bash
 git clone <repository-url>
-cd foodstaxi-gronau
+cd byaliundmesut
 npm install
 ```
 
