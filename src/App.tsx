@@ -8,13 +8,9 @@ import {
   salads,
   dips,
   drinks,
-  donerDishes,
   burgers,
   pizzas,
-  desserts,
   fingerFood,
-  pasta,
-  schnitzel
 } from './data/menuItems';
 import { useCartStore } from './store/cart.store';
 import { ShoppingCart, ChevronUp, ChevronDown } from 'lucide-react';
@@ -49,14 +45,10 @@ const BUTTON_CLASSES = {
 };
 
 const MENU_SECTIONS = {
-  DOENER: 'doener',
   PIZZA: 'pizza',
   BURGER: 'burger',
-  PASTA: 'pasta',
-  SCHNITZEL: 'schnitzel',
   FINGERFOOD: 'fingerfood',
   SALATE: 'salate',
-  DESSERTS: 'desserts',
   DIPS: 'dips',
   GETRAENKE: 'getraenke'
 };
@@ -107,13 +99,9 @@ function App() {
   useEffect(() => {
     console.log('App: Menu items loaded:', {
       pizzas: pizzas.length,
-      donerDishes: donerDishes.length,
       burgers: burgers.length,
-      pasta: pasta.length,
-      schnitzel: schnitzel.length,
       fingerFood: fingerFood.length,
       salads: salads.length,
-      desserts: desserts.length,
       dips: dips.length,
       drinks: drinks.length
     });
@@ -492,13 +480,6 @@ function App() {
           <div className='grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8'>
             <div className='lg:col-span-7 xl:col-span-8 space-y-4'>
               {renderMenuSection(
-                MENU_SECTIONS.DOENER,
-                'Spezialitäten', 
-                undefined,
-                donerDishes
-              )}
-
-              {renderMenuSection(
                 MENU_SECTIONS.PIZZA,
                 'Pizza',
                 'Alle Pizzen werden mit Tomatensoße und Käse zubereitet. Wählen Sie Ihre gewünschte Größe.',
@@ -513,20 +494,6 @@ function App() {
               )}
 
               {renderMenuSection(
-                MENU_SECTIONS.PASTA,
-                'Pasta & Al Forno',
-                'ALLE GERICHTE WERDEN FRISCH GEKOCHT UND ZUBEREITET. ALLE GERICHTE MIT MACCHERONI UND SPAGETTI NACH WAHL ZUBEREITET.',
-                pasta
-              )}
-
-              {renderMenuSection(
-                MENU_SECTIONS.SCHNITZEL,
-                'Schnitzel',
-                'JEDES SCHNITZELGERICHT WIRD MIT HÄHNCHENSCHNITZEL, SALAT UND POMMES SERVIERT',
-                schnitzel
-              )}
-
-              {renderMenuSection(
                 MENU_SECTIONS.FINGERFOOD,
                 'Finger Food',
                 'Knusprige Snacks und Beilagen - perfekt zum Teilen oder als Beilage',
@@ -538,13 +505,6 @@ function App() {
                 'Salate',
                 'Wahlweise mit Joghurt, French, Essig/Öl oder Knoblauch-Dressing',
                 salads
-              )}
-
-              {renderMenuSection(
-                MENU_SECTIONS.DESSERTS,
-                'Desserts',
-                'Süße Leckereien zum Abschluss',
-                desserts
               )}
 
               <div id={MENU_SECTIONS.DIPS} className='scroll-mt-[6.5rem]'>
