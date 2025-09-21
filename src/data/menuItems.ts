@@ -404,7 +404,7 @@ export const drinks: MenuItem[] = [
 export const fleischgerichte: MenuItem[] = [
   {
     id: 529,
-    number: 40,
+    number: 1,
     name: "Fleischgericht Tasche",
     description: "mit Fleischgericht nach Wahl: Kalb oder Hähnchen im Fladenbrot, gemischtem Salat & Soße",
     price: 7.50,
@@ -412,7 +412,7 @@ export const fleischgerichte: MenuItem[] = [
   },
   {
     id: 530,
-    number: 41,
+    number: 2,
     name: "Fleischgericht Dürüm",
     description: "mit Fleischgericht nach Wahl: Kalb oder Hähnchen, gemischtem Salat & Soße",
     price: 8.50,
@@ -420,7 +420,7 @@ export const fleischgerichte: MenuItem[] = [
   },
   {
     id: 531,
-    number: 42,
+    number: 3,
     name: "Fleischgericht Box",
     description: "mit Fleischgericht nach Wahl: Kalb oder Hähnchen, Pommes frites & Soße",
     price: 7.50,
@@ -428,7 +428,7 @@ export const fleischgerichte: MenuItem[] = [
   },
   {
     id: 532,
-    number: 43,
+    number: 4,
     name: "Fleischgericht Teller (mit Pommes)",
     description: "mit Fleischgericht nach Wahl: Kalb oder Hähnchen, Pommes frites oder Bulgur & Soße",
     price: 13.50,
@@ -436,7 +436,7 @@ export const fleischgerichte: MenuItem[] = [
   },
   {
     id: 533,
-    number: 44,
+    number: 5,
     name: "Fleischgericht (mit Salat)",
     description: "mit Fleischgericht nach Wahl: Kalb oder Hähnchen, Salat & Soße",
     price: 13.50,
@@ -444,7 +444,7 @@ export const fleischgerichte: MenuItem[] = [
   },
   {
     id: 534,
-    number: 45,
+    number: 6,
     name: "Sucuk Tasche",
     description: "mit türkischer Knoblauchwurst im Fladenbrot, mit gemischtem Salat & Soße",
     price: 9.00,
@@ -452,7 +452,7 @@ export const fleischgerichte: MenuItem[] = [
   },
   {
     id: 535,
-    number: 46,
+    number: 7,
     name: "Sucuk Teller",
     description: "mit türkischer Knoblauchwurst mit Bulgur oder Pommes, mit gemischtem Salat & Soße",
     price: 13.50,
@@ -460,7 +460,7 @@ export const fleischgerichte: MenuItem[] = [
   },
   {
     id: 536,
-    number: 47,
+    number: 8,
     name: "Lahmacun Salat",
     description: "frischer Lahmacun gefüllt mit Lahmacun & Soße",
     price: 6.00,
@@ -468,7 +468,7 @@ export const fleischgerichte: MenuItem[] = [
   },
   {
     id: 537,
-    number: 48,
+    number: 9,
     name: "Lahmacun Kalb oder Hähnchen",
     description: "Fleischgericht nach Wahl: Kalb oder Hähnchen mit gemischtem Salat & Soße",
     price: 7.00,
@@ -476,7 +476,7 @@ export const fleischgerichte: MenuItem[] = [
   },
   {
     id: 538,
-    number: 49,
+    number: 10,
     name: "Lahmacun Weichkäse",
     description: "mit Weichkäse, gemischtem Salat & Soße",
     price: 7.00,
