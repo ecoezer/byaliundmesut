@@ -51,6 +51,7 @@ const MENU_SECTIONS = {
   FLEISCHGERICHTE: 'fleischgerichte',
   SNACKS: 'snacks',
   VEGETARISCHE_GERICHTE: 'vegetarische-gerichte',
+  CROQUES: 'croques',
   SALATE: 'salate',
   DIPS: 'dips',
   GETRAENKE: 'getraenke'
@@ -511,9 +512,9 @@ function App() {
               )}
 
               {renderMenuSection(
-                MENU_SECTIONS.CROQUES,
+                'croques',
                 'Croques',
-                'Überbackene Sandwiches - warm und knusprig serviert',
+                'Alle Croques werden mit Käse, Salat & Soße zubereitet.',
                 croques
               )}
 
