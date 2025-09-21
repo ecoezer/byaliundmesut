@@ -776,7 +776,26 @@ const OrderForm: React.FC<OrderFormProps> = ({ orderItems, onRemoveItem, onUpdat
           } catch (fallbackError) {
             console.error('All WhatsApp opening methods failed:', fallbackError);
             alert('WhatsApp konnte nicht geöffnet werden. Bitte rufen Sie uns direkt an: 01525 9630500');
-          alert('WhatsApp konnte nicht geöffnet werden. Bitte rufen Sie uns direkt an: 01577 1459166');
+          }
+        }
+      } else {
+        // For desktop, use window.open
+        window.open(whatsappURL, '_blank', 'noopener,noreferrer');
+      }
+      
+    } catch (error) {
+      console.error('Error submitting order:', error);
+      // Show user-friendly error message
+      alert('Es gab ein Problem beim Senden der Bestellung. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an: 01577 1459166');
+    } finally {
+      setIsSubmitting(false);
+      // Re-enable submit button
+      const submitButton = document.querySelector('button[type="submit"]') as HTMLButtonElement;
+      if (submitButton) {
+        submitButton.disabled = false;
+      }
+    }
+  }, [orderItems, subtotal, total, isSubmitting, minOrderMet]);
         }
       } else {
         // For desktop, use window.open
