@@ -256,8 +256,35 @@ const OrderForm: React.FC<OrderFormProps> = ({
     setIsSubmitting(true);
     
     try {
-      // Send email notification (non-blocking)
-      await sendEmailNotification(data);
+      // Send email notification
+      try {
+        const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-order-email`;
+        await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            orderType: data.orderType,
+            deliveryZone: data.deliveryZone,
+            deliveryTime: data.deliveryTime,
+            specificTime: data.specificTime,
+            name: data.name,
+            phone: data.phone,
+            street: data.street,
+            houseNumber: data.houseNumber,
+            postcode: data.postcode,
+            note: data.note,
+            orderItems,
+            subtotal,
+            deliveryFee,
+            total
+          }),
+        });
+      } catch (error) {
+        console.warn('Email notification error:', error);
+      }
       
       // Generate WhatsApp message
       const whatsappMessage = generateWhatsAppMessage(data);
