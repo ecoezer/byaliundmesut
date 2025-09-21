@@ -484,7 +484,7 @@ function App() {
               {renderMenuSection(
                 MENU_SECTIONS.FLEISCHGERICHTE,
                 'Fleischgerichte',
-                '%100 RINDERFLEISCH-PATTY INKL. PORTION POMMES. Alle Burger sind mit Salat, Tomaten, und dänische Gurken belegt. Alle Burger werden wahlweise mit 125g oder 250g (+2€) Patty zubereitet.',
+                'nach Art eines Drehspießes (Erzeugnis eigener Art)\nAlle Fleischgerichte werden mit Eisbergsalat, Tomaten, Gurken, Zwiebeln und einer Soße Ihrer Wahl zubereitet.',
                 fleischgerichte
               )}
 
