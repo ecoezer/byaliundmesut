@@ -365,7 +365,7 @@ function App() {
               }
             } catch (error) {
               console.error('Error opening WhatsApp:', error);
-              window.location.href = CONTACT_INFO.WHATSAPP_URL;
+              itemText += ` - Extras: ${item.selectedExtras.join(', ')} (+${(item.selectedExtras.length * 1.00).toFixed(2)}€)`;
             }
           } else {
             window.open(CONTACT_INFO.WHATSAPP_URL, '_blank', 'noopener,noreferrer');

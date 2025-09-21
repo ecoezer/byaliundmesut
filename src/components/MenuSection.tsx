@@ -91,7 +91,7 @@ const ItemModal: React.FC<ItemModalProps> = memo(({ item, isOpen, onClose, onAdd
 
   const getCurrentPrice = useCallback(() => {
     let price = selectedSize ? selectedSize.price : item.price;
-    price += selectedExtras.length * 1.50;
+    price += selectedExtras.length * 1.00;
     return price;
   }, [selectedSize, selectedExtras, item.price]);
 
