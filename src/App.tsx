@@ -8,7 +8,7 @@ import {
   salads,
   dips,
   drinks,
-  burgers,
+  fleischgerichte,
   pizzas,
   snacks,
 } from './data/menuItems';
@@ -46,7 +46,7 @@ const BUTTON_CLASSES = {
 
 const MENU_SECTIONS = {
   PIZZA: 'pizza',
-  BURGER: 'burger',
+  FLEISCHGERICHTE: 'fleischgerichte',
   SNACKS: 'snacks',
   SALATE: 'salate',
   DIPS: 'dips',
@@ -99,7 +99,7 @@ function App() {
   useEffect(() => {
     console.log('App: Menu items loaded:', {
       pizzas: pizzas.length,
-      burgers: burgers.length,
+      fleischgerichte: fleischgerichte.length,
       snacks: snacks.length,
       salads: salads.length,
       dips: dips.length,
