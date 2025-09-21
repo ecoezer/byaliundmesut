@@ -488,7 +488,7 @@ function App() {
 
               {renderMenuSection(
                 MENU_SECTIONS.BURGER,
-                'Hamburger',
+                'Döner',
                 '%100 RINDERFLEISCH-PATTY INKL. PORTION POMMES. Alle Burger sind mit Salat, Tomaten, und dänische Gurken belegt. Alle Burger werden wahlweise mit 125g oder 250g (+2€) Patty zubereitet.',
                 burgers
               )}
