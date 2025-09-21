@@ -119,6 +119,16 @@ export const pizzaExtras: PizzaExtra[] = [
   { name: 'Zwiebeln', price: 1.50 }
 ];
 
+// Vegetarische Gerichte (Vegetarian dishes)
+export const vegetarischeGerichte: MenuItem[] = [
+  // This section can be populated with vegetarian dishes later
+];
+
+// Croques
+export const croques: MenuItem[] = [
+  // This section can be populated with croques later
+];
+
 // Helper function to create drink sizes for soft drinks
 const createDrinkSizes = (smallPrice: number, largePrice: number = 3.60) => [
   { name: '0,33 L', price: smallPrice, description: 'Klein' },

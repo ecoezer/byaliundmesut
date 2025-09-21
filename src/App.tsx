@@ -11,6 +11,8 @@ import {
   fleischgerichte,
   pizzas,
   snacks,
+  vegetarischeGerichte,
+  croques,
 } from './data/menuItems';
 import { useCartStore } from './store/cart.store';
 import { ShoppingCart, ChevronUp, ChevronDown } from 'lucide-react';
