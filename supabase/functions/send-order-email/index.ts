@@ -110,7 +110,7 @@ function generateEmailHTML(orderData: OrderData): string {
     }
     
     if (item.selectedExtras && item.selectedExtras.length > 0) {
-      itemDetails += ` - Extras: ${item.selectedExtras.join(', ')} (+${(item.selectedExtras.length * 1.50).toFixed(2)}€)`;
+      itemDetails += ` - Extras: ${item.selectedExtras.join(', ')} (+${(item.selectedExtras.length * 1.00).toFixed(2)}€)`;
     }
 
     const itemTotal = (item.menuItem.price * item.quantity).toFixed(2).replace('.', ',');
