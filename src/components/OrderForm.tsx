@@ -541,7 +541,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
               Bestellart *
             </label>
             <div className="grid grid-cols-2 gap-2">
-              <label className="flex items-center space-x-2 cursor-pointer">
+              <label className="flex items-center space-x-2 cursor-pointer p-3 rounded-lg" style={{ backgroundColor: '#f1ece6' }}>
                 <input
                   type="radio"
                   value="pickup"
@@ -550,7 +550,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 />
                 <span className="text-sm">🏃‍♂️ Abholung</span>
               </label>
-              <label className="flex items-center space-x-2 cursor-pointer">
+              <label className="flex items-center space-x-2 cursor-pointer p-3 rounded-lg" style={{ backgroundColor: '#f1ece6' }}>
                 <input
                   type="radio"
                   value="delivery"
@@ -634,7 +634,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
               Lieferzeit *
             </label>
             <div className="space-y-2">
-              <label className="flex items-center space-x-2 cursor-pointer">
+              <label className="flex items-center space-x-2 cursor-pointer p-3 rounded-lg" style={{ backgroundColor: '#f1ece6' }}>
                 <input
                   type="radio"
                   value="asap"
@@ -643,7 +643,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 />
                 <span className="text-sm">⚡ So schnell wie möglich</span>
               </label>
-              <label className="flex items-center space-x-2 cursor-pointer">
+              <label className="flex items-center space-x-2 cursor-pointer p-3 rounded-lg" style={{ backgroundColor: '#f1ece6' }}>
                 <input
                   type="radio"
                   value="specific"
