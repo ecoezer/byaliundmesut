@@ -508,7 +508,7 @@ function App() {
   return (
     <div className='min-h-dvh bg-gray-50'>
       <div className='fixed top-0 left-0 right-0 z-50 bg-white shadow-sm'>
-        <div className="bg-white border-b border-gray-200 py-3">
+        <div className="bg-white py-3">
           <div className="container mx-auto px-4 flex items-center justify-between">
             <SearchBar 
               searchQuery={searchQuery}
@@ -541,6 +541,7 @@ function App() {
             </a>
           </div>
         </div>
+        <div className="border-b border-gray-200"></div>
         <Navigation />
       </div>
 
