@@ -542,6 +542,9 @@ function App() {
                   <span className='text-yellow-500 relative ml-1'>
                     <span>🚕</span>
                   </span>
+                  <div className='text-red-600 text-xs font-medium mt-1 tracking-normal'>
+                    Lieferservice
+                  </div>
                 </h1>
               </div>
               <div className="flex-1">
