@@ -506,7 +506,11 @@ function App() {
 
   const renderMenuSection = useCallback((id, title, description, items, subTitle) => {
     const filteredItems = filterItems(items || []);
-    console.log(`Rendering section ${id}:`, { title, originalCount: items?.length || 0, filteredCount: filteredItems.length });
+    
+    // Don't render section if no items match search
+    if (searchQuery.trim() && filteredItems.length === 0) {
+      return null;
+    }
     
     return (
       <div key={id} id={id} className='scroll-mt-[6.5rem]'>
@@ -601,7 +605,8 @@ function App() {
             </div>
           )}
           
-          <div className='space-y-6'>
+          {hasSearchResults && (
+            <div className='space-y-6'>
               {renderMenuSection(
                 MENU_SECTIONS.FLEISCHGERICHTE,
                 'Fleischgerichte',
@@ -663,6 +668,7 @@ function App() {
                 />
               </div>
             </div>
+          )}
           
           {/* Add bottom padding for mobile cart button */}
           <div className="h-24 lg:hidden" />
