@@ -373,12 +373,17 @@ const OrderForm: React.FC<OrderFormProps> = ({
           <h2 className="text-xl font-bold flex items-center gap-2">
             Warenkorb
           </h2>
+        </div>
+        
+        {/* Separate clear cart button with more spacing */}
+        <div className="mt-4 pt-3 border-t border-orange-400/30">
           <button
             onClick={onClearCart}
-            className="text-white hover:text-orange-200 transition-colors"
+            className="flex items-center gap-2 text-orange-100 hover:text-white hover:bg-orange-600/50 transition-all duration-200 px-3 py-2 rounded-lg text-sm font-medium w-full justify-center"
             title="Warenkorb leeren"
           >
-            <Trash2 className="w-5 h-5" />
+            <Trash2 className="w-4 h-4" />
+            Warenkorb leeren
           </button>
         </div>
       </div>
