@@ -381,148 +381,148 @@ const MenuSection: React.FC<MenuSectionProps> = ({ title, description, subTitle,
 
   return (
     <section className="mb-8">
-      <div className={`${bgColor} text-white p-3 sm:p-4 rounded-t-xl`}>
+      <div className={`${bgColor} text-white p-4 rounded-t-xl`}>
         <div className="flex items-center gap-2 mb-1">
-          <ChefHat className="w-4 h-4 sm:w-5 sm:h-5" />
-          <h2 className="text-sm sm:text-sm md:text-base font-bold">{title}</h2>
+          <ChefHat className="w-5 h-5" />
+          <h2 className="text-lg font-bold">{title}</h2>
         </div>
         {description && (
-          <p className="text-xs sm:text-sm opacity-90 leading-relaxed">{description}</p>
+          <p className="text-sm opacity-90 leading-relaxed">{description}</p>
         )}
         {subTitle && (
-          <p className="text-xs sm:text-sm opacity-80 mt-1 italic">{subTitle}</p>
+          <p className="text-sm opacity-80 mt-1 italic">{subTitle}</p>
         )}
       </div>
 
-      <div className="bg-white rounded-b-xl shadow-lg overflow-hidden">
-        <div className="divide-y divide-gray-200/60">
+      <div className="bg-white rounded-b-xl shadow-lg overflow-hidden border border-gray-100">
+        <div className="divide-y divide-gray-100">
           {items.map((item, index) => (
             <div
               key={`${item.id}-${index}`}
-              className="p-3 sm:p-4 hover:bg-gradient-to-r hover:from-gray-50 hover:to-orange-50/30 transition-all duration-200 group relative"
+              className="p-6 hover:bg-gray-50 transition-all duration-200 group relative flex items-center justify-between"
             >
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-start gap-3 mb-2">
-                    <span className="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-sm sm:text-base font-bold">
+              <div className="flex items-center gap-4 flex-1">
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="flex-shrink-0 w-10 h-10 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-base font-bold">
                       {item.number}
                     </span>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-bold text-gray-900 text-base sm:text-lg leading-tight group-hover:text-orange-600 transition-colors">
+                    <div className="flex-1">
+                      <h3 className="font-bold text-gray-900 text-lg leading-tight group-hover:text-orange-600 transition-colors">
                         {item.name}
                       </h3>
-                      {item.description && (
-                        <p className="text-gray-600 text-sm sm:text-base mt-1 leading-relaxed">
-                          {item.description}
-                        </p>
-                      )}
-                      {item.allergens && (
-                        <p className="text-xs text-gray-500 mt-2">
-                          <span className="font-medium">Allergene:</span> {item.allergens}
-                        </p>
-                      )}
                     </div>
                   </div>
-                </div>
-
-                <div className="flex flex-col items-end gap-2 flex-shrink-0">
-                  <div className="text-right">
-                    {item.sizes && item.sizes.length > 0 ? (
-                      <div className="space-y-1">
-                        <div className="text-sm text-gray-600">ab</div>
-                        <div className="text-lg sm:text-xl font-bold text-orange-600">
-                          {Math.min(...item.sizes.map(s => s.price)).toFixed(2).replace('.', ',')} €
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="text-lg sm:text-xl font-bold text-orange-600 relative">
-                        {/* Show original price crossed out if there's a special offer */}
-                        {((item.id === 84 && new Date().getDay() === 3) || 
-                          ([547, 548].includes(item.id) && new Date().getDay() === 4)) && (
-                          <div className="text-sm text-gray-500 line-through">
-                            {item.id === 84 ? '14,90' : '12,90'} €
-                          </div>
-                        )}
-                        <div className={((item.id === 84 && new Date().getDay() === 3) || 
-                          ([547, 548].includes(item.id) && new Date().getDay() === 4)) 
-                          ? 'text-red-600 font-extrabold animate-pulse' : ''}>
-                          {item.price.toFixed(2).replace('.', ',')} €
-                        </div>
-                      </div>
+                  {item.description && (
+                    <p className="text-gray-600 text-base mt-1 leading-relaxed ml-13">
+                      {item.description}
+                    </p>
+                  )}
+                  {item.allergens && (
+                    <p className="text-xs text-gray-500 mt-2 ml-13">
+                      <span className="font-medium">Allergene:</span> {item.allergens}
+                    </p>
+                  )}
+                  
+                  {/* Configuration indicators */}
+                  <div className="flex flex-wrap gap-2 mt-3 ml-13">
+                    {/* Special offer indicators */}
+                    {item.id === 84 && new Date().getDay() === 3 && (
+                      <span className="inline-flex items-center gap-1 px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full animate-pulse">
+                        🔥 RIPPCHEN-TAG SPEZIAL
+                      </span>
+                    )}
+                    {[546, 547, 548, 549].includes(item.id) && new Date().getDay() === 4 && (
+                      <span className="inline-flex items-center gap-1 px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full animate-pulse">
+                        🔥 SCHNITZEL-TAG SPEZIAL
+                      </span>
+                    )}
+                    {item.sizes && (
+                      <span className="inline-flex items-center gap-1 px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">
+                        <Star className="w-3 h-3" />
+                        Größen verfügbar
+                      </span>
+                    )}
+                    {item.isWunschPizza && (
+                      <span className="inline-flex items-center gap-1 px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">
+                        <ChefHat className="w-3 h-3" />
+                        4 Zutaten wählbar
+                      </span>
+                    )}
+                    {(item.isPizza && !item.isWunschPizza) && (
+                      <span className="inline-flex items-center gap-1 px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">
+                        <Plus className="w-3 h-3" />
+                        Extras verfügbar
+                      </span>
+                    )}
+                    {item.isWunschPizza && (
+                      <span className="inline-flex items-center gap-1 px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">
+                        <Plus className="w-3 h-3" />
+                        Extras verfügbar
+                      </span>
+                    )}
+                    {item.isPasta && (
+                      <span className="inline-flex items-center gap-1 px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">
+                        <Clock className="w-3 h-3" />
+                        Nudelsorte wählbar
+                      </span>
+                    )}
+                    {item.isSpezialitaet && ![81, 82].includes(item.id) && (
+                      <span className="inline-flex items-center gap-1 px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full">
+                        <ChefHat className="w-3 h-3" />
+                        Soße wählbar
+                      </span>
+                    )}
+                    {item.id >= 568 && item.id <= 573 && item.isSpezialitaet && (
+                      <span className="inline-flex items-center gap-1 px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">
+                        <ChefHat className="w-3 h-3" />
+                        Dressing wählbar
+                      </span>
+                    )}
+                    {item.isBeerSelection && (
+                      <span className="inline-flex items-center gap-1 px-2 py-1 bg-amber-100 text-amber-800 text-xs rounded-full">
+                        <ChefHat className="w-3 h-3" />
+                        Bier wählbar
+                      </span>
                     )}
                   </div>
-
-                  <button
-                    className="flex items-center gap-1.5 bg-orange-500 text-white px-2 sm:px-3 py-1.5 rounded-lg hover:bg-orange-600 transition-all transform hover:scale-105 text-xs sm:text-sm font-medium shadow-md hover:shadow-lg"
-                    onClick={() => handleItemClick(item)}
-                  >
-                    <Plus className="w-3 h-3" />
-                    <span className="hidden sm:inline">Hinzufügen</span>
-                  </button>
                 </div>
               </div>
 
-              {/* Configuration indicators */}
-              <div className="flex flex-wrap gap-2 mt-3">
-                {/* Special offer indicators */}
-                {item.id === 84 && new Date().getDay() === 3 && (
-                  <span className="inline-flex items-center gap-1 px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full animate-pulse">
-                    🔥 RIPPCHEN-TAG SPEZIAL
-                  </span>
-                )}
-                {[546, 547, 548, 549].includes(item.id) && new Date().getDay() === 4 && (
-                  <span className="inline-flex items-center gap-1 px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full animate-pulse">
-                    🔥 SCHNITZEL-TAG SPEZIAL
-                  </span>
-                )}
-                {item.sizes && (
-                  <span className="inline-flex items-center gap-1 px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">
-                    <Star className="w-3 h-3" />
-                    Größen verfügbar
-                  </span>
-                )}
-                {item.isWunschPizza && (
-                  <span className="inline-flex items-center gap-1 px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">
-                    <ChefHat className="w-3 h-3" />
-                    4 Zutaten wählbar
-                  </span>
-                )}
-                {(item.isPizza && !item.isWunschPizza) && (
-                  <span className="inline-flex items-center gap-1 px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">
-                    <Plus className="w-3 h-3" />
-                    Extras verfügbar
-                  </span>
-                )}
-                {item.isWunschPizza && (
-                  <span className="inline-flex items-center gap-1 px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">
-                    <Plus className="w-3 h-3" />
-                    Extras verfügbar
-                  </span>
-                )}
-                {item.isPasta && (
-                  <span className="inline-flex items-center gap-1 px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">
-                    <Clock className="w-3 h-3" />
-                    Nudelsorte wählbar
-                  </span>
-                )}
-                {item.isSpezialitaet && ![81, 82].includes(item.id) && (
-                  <span className="inline-flex items-center gap-1 px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full">
-                    <ChefHat className="w-3 h-3" />
-                    Soße wählbar
-                  </span>
-                )}
-                {item.id >= 568 && item.id <= 573 && item.isSpezialitaet && (
-                  <span className="inline-flex items-center gap-1 px-2 py-1 bg-indigo-100 text-indigo-800 text-xs rounded-full">
-                    <ChefHat className="w-3 h-3" />
-                    Dressing wählbar
-                  </span>
-                )}
-                {item.isBeerSelection && (
-                  <span className="inline-flex items-center gap-1 px-2 py-1 bg-amber-100 text-amber-800 text-xs rounded-full">
-                    <ChefHat className="w-3 h-3" />
-                    Bier wählbar
-                  </span>
-                )}
+              <div className="flex flex-col items-end gap-3 flex-shrink-0">
+                <div className="text-right">
+                  {item.sizes && item.sizes.length > 0 ? (
+                    <div className="space-y-1">
+                      <div className="text-sm text-gray-600">ab</div>
+                      <div className="text-xl font-bold text-orange-600">
+                        {Math.min(...item.sizes.map(s => s.price)).toFixed(2).replace('.', ',')} €
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="text-xl font-bold text-orange-600 relative">
+                      {/* Show original price crossed out if there's a special offer */}
+                      {((item.id === 84 && new Date().getDay() === 3) || 
+                        ([547, 548].includes(item.id) && new Date().getDay() === 4)) && (
+                        <div className="text-sm text-gray-500 line-through">
+                          {item.id === 84 ? '14,90' : '12,90'} €
+                        </div>
+                      )}
+                      <div className={((item.id === 84 && new Date().getDay() === 3) || 
+                        ([547, 548].includes(item.id) && new Date().getDay() === 4)) 
+                        ? 'text-red-600 font-extrabold animate-pulse' : ''}>
+                        {item.price.toFixed(2).replace('.', ',')} €
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                <button
+                  className="flex items-center gap-2 bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-all transform hover:scale-105 text-sm font-medium shadow-md hover:shadow-lg"
+                  onClick={() => handleItemClick(item)}
+                >
+                  <Plus className="w-4 h-4" />
+                  Hinzufügen
+                </button>
               </div>
             </div>
           ))}
