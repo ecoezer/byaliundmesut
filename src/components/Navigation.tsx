@@ -135,7 +135,7 @@ const Navigation = () => {
           {showLeftArrow && (
             <button
               onClick={() => scroll('left')}
-              className="absolute left-0 z-20 w-10 h-10 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors"
+              className="absolute left-2 z-20 w-10 h-10 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors"
               aria-label="Nach links scrollen"
             >
               <ChevronLeft className="h-5 w-5 text-gray-600" />
@@ -147,10 +147,8 @@ const Navigation = () => {
             ref={scrollContainerRef}
             className="flex items-center justify-center gap-2 overflow-x-auto scrollbar-hide flex-1 lg:justify-center"
             style={{ 
-              paddingLeft: showLeftArrow ? '48px' : '12px',
-              paddingRight: showRightArrow ? '48px' : '12px'
-            }}
-            style={{ 
+              paddingLeft: showLeftArrow ? '56px' : '16px',
+              paddingRight: showRightArrow ? '56px' : '16px',
               scrollbarWidth: 'none', 
               msOverflowStyle: 'none',
               scrollSnapType: 'x mandatory'
@@ -180,7 +178,7 @@ const Navigation = () => {
           {showRightArrow && (
             <button
               onClick={() => scroll('right')}
-              className="absolute right-0 z-20 w-10 h-10 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors"
+              className="absolute right-2 z-20 w-10 h-10 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors"
               aria-label="Nach rechts scrollen"
             >
               <ChevronRight className="h-5 w-5 text-gray-600" />
