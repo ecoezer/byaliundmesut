@@ -579,6 +579,81 @@ function App() {
         </div>
 
         <main className='container mx-auto px-6 py-6 max-w-5xl lg:max-w-none'>
+          {/* Search Results Message */}
+          {searchQuery.trim() && !hasSearchResults && (
+            <div className="text-center py-12">
+              <div className="text-gray-500 text-lg mb-2">
+                Keine Ergebnisse für "<span className="font-medium text-orange-600">{searchQuery}</span>"
+              </div>
+              <button
+                onClick={() => setSearchQuery('')}
+                className="text-orange-500 hover:text-orange-600 underline"
+              >
+                Suche zurücksetzen
+              </button>
+            </div>
+          )}
+
+          {/* Menu Sections */}
+          {hasSearchResults && (
+            <>
+              {renderMenuSection(
+                MENU_SECTIONS.FLEISCHGERICHTE,
+                'Fleischgerichte',
+                'Döner, Dürüm, Lahmacun und mehr - frisch zubereitet mit bestem Fleisch',
+                fleischgerichte
+              )}
+
+              {renderMenuSection(
+                MENU_SECTIONS.SNACKS,
+                'Snacks',
+                'Kleine Gerichte und Menüs für zwischendurch',
+                snacks
+              )}
+
+              {renderMenuSection(
+                MENU_SECTIONS.VEGETARISCHE_GERICHTE,
+                'Vegetarische Gerichte',
+                'Leckere fleischlose Alternativen - Halloumi, Falafel und mehr',
+                vegetarischeGerichte
+              )}
+
+              {renderMenuSection(
+                MENU_SECTIONS.PIZZA,
+                'Pizza',
+                'Frisch gebackene Pizzen in verschiedenen Größen - von klassisch bis kreativ',
+                pizzas
+              )}
+
+              {renderMenuSection(
+                MENU_SECTIONS.CROQUES,
+                'Croques',
+                'Knusprig überbackene Croques mit verschiedenen Füllungen',
+                croques
+              )}
+
+              {renderMenuSection(
+                MENU_SECTIONS.SALATE,
+                'Salate',
+                'Frische Salate mit verschiedenen Dressings',
+                salads
+              )}
+
+              {renderMenuSection(
+                MENU_SECTIONS.DIPS,
+                'Dips & Soßen',
+                'Leckere Dips und Soßen zu Ihren Gerichten',
+                dips
+              )}
+
+              {renderMenuSection(
+                MENU_SECTIONS.GETRAENKE,
+                'Getränke',
+                'Erfrischende Getränke für jeden Geschmack',
+                drinks
+              )}
+            </>
+          )}
         </main>
 
         <Footer />
