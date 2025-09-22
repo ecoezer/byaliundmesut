@@ -15,7 +15,7 @@ import {
   croques,
 } from './data/menuItems';
 import { useCartStore } from './store/cart.store';
-import { ShoppingCart, ChevronUp, ChevronDown } from 'lucide-react';
+import { ShoppingCart, ChevronUp, ChevronDown, X } from 'lucide-react';
 import { MenuItem, PizzaSize } from './types';
 
 // =================== CONSTANTS ===================
@@ -77,6 +77,7 @@ function App() {
   // =================== LOCAL STATE ===================
   const [isMobile, setIsMobile] = useState(window.innerWidth < SCROLL_CONFIG.MOBILE_BREAKPOINT);
   const [showScrollButtons, setShowScrollButtons] = useState(false);
+  const [showMobileCart, setShowMobileCart] = useState(false);
 
   // =================== EFFECTS ===================
   useEffect(() => {
@@ -304,6 +305,35 @@ function App() {
   const memoizedClearCart = useCallback(() => {
     clearCart();
   }, [clearCart]);
+
+  // =================== MOBILE CART FUNCTIONS ===================
+  const toggleMobileCart = useCallback(() => {
+    setShowMobileCart(prev => !prev);
+  }, []);
+
+  const closeMobileCart = useCallback(() => {
+    setShowMobileCart(false);
+  }, []);
+
+  // Close mobile cart when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (showMobileCart && isMobile) {
+        const cartElement = document.getElementById('mobile-cart-sidebar');
+        const buttonElement = document.getElementById('mobile-cart-button');
+        
+        if (cartElement && buttonElement && 
+            !cartElement.contains(event.target as Node) && 
+            !buttonElement.contains(event.target as Node)) {
+          setShowMobileCart(false);
+        }
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [showMobileCart, isMobile]);
+
   // =================== RENDER HELPER FUNCTIONS ===================
   const renderAnimatedBackground = () => (
     <div className='absolute inset-0 opacity-30'>
@@ -449,6 +479,83 @@ function App() {
     )
   );
 
+  const renderMobileCartButton = () => (
+    isMobile && (
+      <button
+        id="mobile-cart-button"
+        onClick={toggleMobileCart}
+        className="fixed bottom-4 left-4 right-4 bg-orange-500 hover:bg-orange-600 text-white py-4 px-6 rounded-xl shadow-lg flex items-center justify-between z-50 transition-all duration-300 transform hover:scale-105"
+        style={{ marginBottom: 'env(safe-area-inset-bottom)' }}
+      >
+        <div className="flex items-center gap-3">
+          <div className="relative">
+            <ShoppingCart className="w-6 h-6" />
+            {totalItemsCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+                {totalItemsCount}
+              </span>
+            )}
+          </div>
+          <span className="font-semibold text-lg">
+            {totalItemsCount > 0 ? 'Warenkorb ansehen' : 'Warenkorb leer'}
+          </span>
+        </div>
+        {totalItemsCount > 0 && (
+          <span className="font-bold text-lg">
+            {items.reduce((sum, item) => {
+              const basePrice = item.selectedSize ? item.selectedSize.price : item.menuItem.price;
+              const extrasPrice = (item.selectedExtras?.length || 0) * 1.00;
+              return sum + ((basePrice + extrasPrice) * item.quantity);
+            }, 0).toFixed(2).replace('.', ',')} €
+          </span>
+        )}
+      </button>
+    )
+  );
+
+  const renderMobileCartSidebar = () => (
+    isMobile && showMobileCart && (
+      <>
+        {/* Backdrop */}
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          onClick={closeMobileCart}
+        />
+        
+        {/* Mobile Cart Sidebar */}
+        <div 
+          id="mobile-cart-sidebar"
+          className="fixed bottom-0 left-0 right-0 bg-white rounded-t-xl shadow-xl z-50 max-h-[80vh] flex flex-col animate-slide-up"
+          style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+        >
+          {/* Header */}
+          <div className="flex items-center justify-between p-4 border-b bg-orange-500 text-white rounded-t-xl">
+            <h2 className="text-xl font-bold flex items-center gap-2">
+              <ShoppingCart className="w-6 h-6" />
+              Warenkorb ({totalItemsCount})
+            </h2>
+            <button
+              onClick={closeMobileCart}
+              className="p-2 hover:bg-orange-600 rounded-full transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
+          
+          {/* Cart Content */}
+          <div className="flex-1 overflow-hidden">
+            <OrderForm
+              orderItems={items}
+              onRemoveItem={memoizedRemoveItem}
+              onUpdateQuantity={memoizedUpdateQuantity}
+              onClearCart={memoizedClearCart}
+            />
+          </div>
+        </div>
+      </>
+    )
+  );
+
   const renderMenuSection = useCallback((id, title, description, items, subTitle) => {
     console.log(`Rendering section ${id}:`, { title, itemsCount: items?.length || 0 });
     
@@ -474,8 +581,8 @@ function App() {
         <Navigation />
       </div>
 
-      {/* Fixed Cart Sidebar */}
-      <div className='fixed top-0 right-0 w-80 h-full bg-white shadow-xl z-40 pt-32 overflow-y-auto'>
+      {/* Desktop Cart Sidebar */}
+      <div className='hidden lg:block fixed top-0 right-0 w-80 h-full bg-white shadow-xl z-40 pt-32 overflow-y-auto'>
         <OrderForm
           orderItems={items}
           onRemoveItem={memoizedRemoveItem}
@@ -484,7 +591,7 @@ function App() {
         />
       </div>
 
-      <div className='pt-32 pr-80'>
+      <div className='pt-32 lg:pr-80'>
         <Header />
 
         <main className='container mx-auto px-6 py-6 max-w-5xl'>
@@ -550,12 +657,17 @@ function App() {
                 />
               </div>
             </div>
+          
+          {/* Add bottom padding for mobile cart button */}
+          <div className="h-24 lg:hidden" />
         </main>
 
         <Footer />
       </div>
 
       {renderScrollButtons()}
+      {renderMobileCartButton()}
+      {renderMobileCartSidebar()}
     </div>
   );
 }
