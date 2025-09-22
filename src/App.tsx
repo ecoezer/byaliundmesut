@@ -357,6 +357,23 @@ function App() {
     );
   }, [searchQuery]);
 
+  // Check if search has results
+  const hasSearchResults = useMemo(() => {
+    if (!searchQuery.trim()) return true;
+    
+    const allItems = [
+      ...fleischgerichte,
+      ...snacks,
+      ...vegetarischeGerichte,
+      ...pizzas,
+      ...croques,
+      ...salads,
+      ...dips,
+      ...drinks
+    ];
+    
+    return filterItems(allItems).length > 0;
+  }, [searchQuery, filterItems]);
   const renderCartButton = () => (
     <button
       onClick={scrollToCart}
@@ -564,6 +581,26 @@ function App() {
         </div>
 
         <main className='container mx-auto px-6 py-6 max-w-5xl lg:max-w-none'>
+          {searchQuery.trim() && !hasSearchResults && (
+            <div className="text-center py-12">
+              <div className="bg-white rounded-xl shadow-lg p-8 max-w-md mx-auto">
+                <div className="text-6xl mb-4">🔍</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  Keine Ergebnisse gefunden
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Für "<span className="font-medium text-orange-600">{searchQuery}</span>" wurden keine Gerichte gefunden.
+                </p>
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg transition-colors"
+                >
+                  Suche zurücksetzen
+                </button>
+              </div>
+            </div>
+          )}
+          
           <div className='space-y-6'>
               {renderMenuSection(
                 MENU_SECTIONS.FLEISCHGERICHTE,
