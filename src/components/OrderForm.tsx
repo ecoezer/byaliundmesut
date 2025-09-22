@@ -430,7 +430,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         {/* Order Items */}
         <div className="space-y-3">
           {orderItems.map((item, index) => (
-            <div key={index} className="bg-gray-50 rounded-lg p-3">
+            <div key={index} className="bg-gray-100 rounded-lg p-3">
               <div className="flex items-start justify-between gap-3">
                 <div className="flex-1 min-w-0">
                   <h4 className="font-medium text-gray-900 text-sm">
