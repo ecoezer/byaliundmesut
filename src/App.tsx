@@ -488,7 +488,8 @@ function App() {
   );
 
   const renderMenuSection = useCallback((id, title, description, items, subTitle) => {
-    console.log(`Rendering section ${id}:`, { title, itemsCount: items?.length || 0 });
+    const filteredItems = filterItems(items || []);
+    console.log(`Rendering section ${id}:`, { title, originalCount: items?.length || 0, filteredCount: filteredItems.length });
     
     return (
       <div key={id} id={id} className='scroll-mt-[6.5rem]'>
@@ -496,13 +497,13 @@ function App() {
           title={title}
           description={description}
           subTitle={subTitle}
-          items={items || []}
+          items={filteredItems}
           bgColor='bg-orange-500'
           onAddToOrder={memoizedAddItem}
         />
       </div>
     );
-  }, [memoizedAddItem]);
+  }, [memoizedAddItem, filterItems]);
 
   // =================== MAIN RENDER ===================
   return (
@@ -568,42 +569,42 @@ function App() {
                 MENU_SECTIONS.FLEISCHGERICHTE,
                 'Fleischgerichte',
                 'nach Art eines Drehspießes (Erzeugnis eigener Art)\nAlle Fleischgerichte werden mit Eisbergsalat, Tomaten, Gurken, Zwiebeln und einer Soße Ihrer Wahl zubereitet.',
-                filterItems(fleischgerichte)
+                fleischgerichte
               )}
 
               {renderMenuSection(
                 MENU_SECTIONS.SNACKS,
                 'Snacks',
                 'Alle Burger werden mit frischem Salat, Ketchup und Burger-Dressing serviert.',
-                filterItems(snacks)
+                snacks
               )}
 
               {renderMenuSection(
                 MENU_SECTIONS.VEGETARISCHE_GERICHTE,
                 'Vegetarische Gerichte',
                 'Leckere vegetarische Pizzen und Gerichte ohne Fleisch',
-                filterItems(vegetarischeGerichte)
+                vegetarischeGerichte
               )}
 
               {renderMenuSection(
                 MENU_SECTIONS.PIZZA,
                 'Pizza',
                 'Klassische Pizzen mit Fleisch - Alle Pizzen werden mit Tomatensoße und Käse zubereitet. Wählen Sie Ihre gewünschte Größe.',
-                filterItems(pizzas)
+                pizzas
               )}
 
               {renderMenuSection(
                 'croques',
                 'Croques',
                 'Alle Croques werden mit Käse, Salat & Soße zubereitet.',
-                filterItems(croques)
+                croques
               )}
 
               {renderMenuSection(
                 MENU_SECTIONS.SALATE,
                 'Salate',
                 'Alle Salate werden mit einem Dressing nach Wahl zubereitet!\n(z. B. Joghurt-, Balsamico- oder Essig-Öl-Dressing)',
-                filterItems(salads)
+                salads
               )}
 
               <div id={MENU_SECTIONS.DIPS} className='scroll-mt-[6.5rem]'>
