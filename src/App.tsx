@@ -494,18 +494,18 @@ function App() {
         className={`fixed bottom-4 left-4 right-4 bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-full shadow-xl flex items-center justify-center z-50 transition-all duration-300 transform hover:scale-105 ${cartAnimation ? 'animate-cart-mobile-pulse' : ''}`}
         style={{ marginBottom: 'env(safe-area-inset-bottom)' }}
       >
-        <div className="flex items-center justify-center gap-3 flex-1">
-          <div className="relative">
-            <div className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
-              <ShoppingCart className={`w-5 h-5 ${cartAnimation ? 'animate-cart-shake' : ''}`} />
-            </div>
-            {totalItemsCount > 0 && (
-              <span className={`absolute -top-1 -right-1 bg-gray-800 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold ${cartAnimation ? 'animate-cart-badge-pulse' : ''}`}>
-                {totalItemsCount}
-              </span>
-            )}
+        <div className="relative flex-shrink-0">
+          <div className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+            <ShoppingCart className={`w-5 h-5 ${cartAnimation ? 'animate-cart-shake' : ''}`} />
           </div>
-          <span className="font-medium text-lg text-center">
+          {totalItemsCount > 0 && (
+            <span className={`absolute -top-1 -right-1 bg-gray-800 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold ${cartAnimation ? 'animate-cart-badge-pulse' : ''}`}>
+              {totalItemsCount}
+            </span>
+          )}
+        </div>
+        <div className="flex-1 flex justify-center">
+          <span className="font-medium text-lg">
             Warenkorb ansehen
           </span>
         </div>
