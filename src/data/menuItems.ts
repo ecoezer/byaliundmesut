@@ -600,7 +600,7 @@ export const fleischgerichte: MenuItem[] = [
     id: 536,
     number: 8,
     name: "Lahmacun Salat",
-    description: "frischer Lahmacun gefüllt mit Lahmacun & Soße",
+    description: "mit gemischtem Salat & Soße",
     price: 6.00,
     isSpezialitaet: true
   },
