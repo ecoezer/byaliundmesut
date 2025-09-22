@@ -602,7 +602,7 @@ function App() {
       <div className='pt-32 lg:pr-80'>
         <Header />
 
-        <main className='container mx-auto px-6 py-6 max-w-5xl'>
+        <main className='container mx-auto px-6 py-6 max-w-5xl lg:max-w-none lg:mr-80'>
           <div className='space-y-6'>
               {renderMenuSection(
                 MENU_SECTIONS.FLEISCHGERICHTE,
