@@ -412,6 +412,21 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
 
       <div className="flex-1 p-4 space-y-4 overflow-y-auto">
+        {/* Clear Cart Button - Always visible when hideTitle is true */}
+        {hideTitle && orderItems.length > 0 && (
+          <div className="flex justify-end mb-4">
+            <button
+              onClick={handleClearCart}
+              disabled={isClearing}
+              className={`flex items-center gap-2 text-white bg-red-500 hover:bg-red-600 transition-all duration-200 px-4 py-2 rounded-lg text-sm font-medium shadow-md hover:shadow-lg z-50 ${isClearing ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'}`}
+              title="Warenkorb leeren"
+            >
+              <Trash2 className="w-4 h-4" />
+              {isClearing ? 'Wird geleert...' : 'Warenkorb leeren'}
+            </button>
+          </div>
+        )}
+
         {/* Order Items */}
         <div className="space-y-3">
           {orderItems.map((item, index) => (
