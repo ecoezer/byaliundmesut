@@ -600,9 +600,11 @@ function App() {
       </div>
 
       <div className='pt-32 lg:pr-80'>
-        <Header />
+        <div className="lg:pr-80">
+          <Header />
+        </div>
 
-        <main className='container mx-auto px-6 py-6 max-w-5xl lg:max-w-none lg:mr-80'>
+        <main className='container mx-auto px-6 py-6 max-w-5xl lg:max-w-none'>
           <div className='space-y-6'>
               {renderMenuSection(
                 MENU_SECTIONS.FLEISCHGERICHTE,

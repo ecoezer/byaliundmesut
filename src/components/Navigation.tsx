@@ -109,8 +109,8 @@ const Navigation = () => {
   };
 
   return (
-    <div className="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4">
+    <div className="w-full bg-white border-b border-gray-200 sticky top-0 z-50 lg:pr-80">
+      <div className="max-w-7xl mx-auto px-4 lg:pr-0">
         <div className="relative flex items-center h-16">
           
           {/* Left Arrow */}
