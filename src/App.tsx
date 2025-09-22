@@ -590,7 +590,7 @@ function App() {
       </div>
 
       {/* Desktop Cart Sidebar */}
-      <div className='hidden lg:block fixed top-0 right-0 w-80 h-full bg-white shadow-xl z-40 pt-32 overflow-y-auto'>
+      <div className='hidden lg:block fixed top-0 right-0 w-80 h-full bg-white shadow-xl z-40 overflow-y-auto'>
         <OrderForm
           orderItems={items}
           onRemoveItem={memoizedRemoveItem}
