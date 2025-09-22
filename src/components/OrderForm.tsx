@@ -394,10 +394,6 @@ const OrderForm: React.FC<OrderFormProps> = ({
             <h2 className="text-xl font-bold flex items-center gap-2">
               Warenkorb
             </h2>
-          </div>
-          
-          {/* Separate clear cart button with more spacing */}
-          <div className="mt-4 pt-3 border-t border-orange-400/30">
             <button
               onClick={handleClearCart}
               disabled={isClearing}
