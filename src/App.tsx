@@ -78,6 +78,7 @@ function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < SCROLL_CONFIG.MOBILE_BREAKPOINT);
   const [showScrollButtons, setShowScrollButtons] = useState(false);
   const [showMobileCart, setShowMobileCart] = useState(false);
+  const [cartAnimation, setCartAnimation] = useState(false);
 
   // =================== EFFECTS ===================
   useEffect(() => {
@@ -118,6 +119,11 @@ function App() {
     [items]
   );
 
+  // =================== CART ANIMATION FUNCTIONS ===================
+  const triggerCartAnimation = useCallback(() => {
+    setCartAnimation(true);
+    setTimeout(() => setCartAnimation(false), 1000);
+  }, []);
   // =================== HELPER FUNCTIONS ===================
   const findCartElement = useCallback(() => {
     for (const selector of CART_SELECTORS) {
@@ -292,6 +298,7 @@ function App() {
   // =================== MEMOIZED CALLBACKS ===================
   const memoizedAddItem = useCallback((menuItem: MenuItem, selectedSize?: PizzaSize, selectedIngredients?: string[], selectedExtras?: string[], selectedPastaType?: string, selectedSauce?: string) => {
     addItem(menuItem, selectedSize, selectedIngredients, selectedExtras, selectedPastaType, selectedSauce);
+    triggerCartAnimation();
   }, [addItem]);
 
   const memoizedRemoveItem = useCallback((id: number, selectedSize?: PizzaSize, selectedIngredients?: string[], selectedExtras?: string[], selectedPastaType?: string, selectedSauce?: string) => {
@@ -432,9 +439,9 @@ function App() {
       type="button"
       aria-label={`Warenkorb anzeigen. ${totalItemsCount} Artikel`}
       aria-describedby="cart-count"
-      className={BUTTON_CLASSES.cart}
+      className={`${BUTTON_CLASSES.cart} ${cartAnimation ? 'animate-cart-added' : ''}`}
     >
-      <ShoppingCart className='w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 group-hover/cart:animate-bounce' aria-hidden="true" />
+      <ShoppingCart className={`w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 group-hover/cart:animate-bounce ${cartAnimation ? 'animate-cart-shake' : ''}`} aria-hidden="true" />
       
       <span id="cart-count" className="sr-only">
         {totalItemsCount} Artikel im Warenkorb
@@ -442,7 +449,7 @@ function App() {
       
       {totalItemsCount > 0 ? (
         <span 
-          className='absolute -bottom-1 -right-1 px-1 sm:px-1.5 py-0.5 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 text-black text-xs font-bold min-w-[1.25rem] sm:min-w-[1.5rem] h-5 sm:h-6 flex justify-center items-center animate-bounce border-2 border-white shadow-lg'
+          className={`absolute -bottom-1 -right-1 px-1 sm:px-1.5 py-0.5 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 text-black text-xs font-bold min-w-[1.25rem] sm:min-w-[1.5rem] h-5 sm:h-6 flex justify-center items-center animate-bounce border-2 border-white shadow-lg ${cartAnimation ? 'animate-cart-badge-pulse' : ''}`}
           aria-hidden="true"
         >
           {totalItemsCount}
@@ -484,14 +491,14 @@ function App() {
       <button
         id="mobile-cart-button"
         onClick={toggleMobileCart}
-        className="fixed bottom-4 left-4 right-4 bg-orange-500 hover:bg-orange-600 text-white py-4 px-6 rounded-xl shadow-lg flex items-center justify-between z-50 transition-all duration-300 transform hover:scale-105"
+        className={`fixed bottom-4 left-4 right-4 bg-orange-500 hover:bg-orange-600 text-white py-4 px-6 rounded-xl shadow-lg flex items-center justify-between z-50 transition-all duration-300 transform hover:scale-105 ${cartAnimation ? 'animate-cart-mobile-pulse' : ''}`}
         style={{ marginBottom: 'env(safe-area-inset-bottom)' }}
       >
         <div className="flex items-center gap-3">
           <div className="relative">
-            <ShoppingCart className="w-6 h-6" />
+            <ShoppingCart className={`w-6 h-6 ${cartAnimation ? 'animate-cart-shake' : ''}`} />
             {totalItemsCount > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+              <span className={`absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold ${cartAnimation ? 'animate-cart-badge-pulse' : ''}`}>
                 {totalItemsCount}
               </span>
             )}
