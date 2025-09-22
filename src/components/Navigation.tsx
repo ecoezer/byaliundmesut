@@ -40,17 +40,20 @@ const Navigation = () => {
     }
 
     const { scrollLeft, scrollWidth, clientWidth } = container;
-    const isScrollable = scrollWidth > clientWidth;
+    // Add a small buffer (5px) to account for rounding errors and ensure we only show arrows when actually needed
+    const isScrollable = scrollWidth > clientWidth + 5;
     
-    // Only show arrows if content actually overflows
+    // Only show arrows if content actually overflows and scrolling is needed
     if (!isScrollable) {
       setShowLeftArrow(false);
       setShowRightArrow(false);
       return;
     }
     
-    setShowLeftArrow(scrollLeft > 5);
-    setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 5);
+    // Show left arrow only if we can scroll left (not at the beginning)
+    setShowLeftArrow(scrollLeft > 10);
+    // Show right arrow only if we can scroll right (not at the end)
+    setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 10);
   };
 
   // Update arrow visibility on scroll and resize
@@ -142,7 +145,11 @@ const Navigation = () => {
           {/* Navigation Items */}
           <div 
             ref={scrollContainerRef}
-            className="flex items-center gap-2 overflow-x-auto scrollbar-hide flex-1 px-12"
+            className="flex items-center gap-2 overflow-x-auto scrollbar-hide flex-1"
+            style={{ 
+              paddingLeft: showLeftArrow ? '48px' : '12px',
+              paddingRight: showRightArrow ? '48px' : '12px'
+            }}
             style={{ 
               scrollbarWidth: 'none', 
               msOverflowStyle: 'none',
