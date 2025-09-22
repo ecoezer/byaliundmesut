@@ -533,6 +533,17 @@ function App() {
         <div className="bg-white py-3">
           <div className="container mx-auto px-4 max-w-7xl lg:pr-80">
             <div className="flex items-center gap-4">
+              <div className="flex-shrink-0">
+                <h1 className='text-sm sm:text-base font-bold tracking-tighter text-gray-900 relative animate-fade-in'>
+                  <span className='relative'>
+                    <span>by Ali und Mesut</span>
+                    <span className='absolute -bottom-1 left-0 w-full h-1 bg-yellow-200 transform -skew-x-12' aria-hidden="true" />
+                  </span>
+                  <span className='text-yellow-500 relative ml-1'>
+                    <span>🚕</span>
+                  </span>
+                </h1>
+              </div>
               <div className="flex-1">
                 <SearchBar 
                   searchQuery={searchQuery}
