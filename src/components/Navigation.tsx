@@ -42,8 +42,15 @@ const Navigation = () => {
     const { scrollLeft, scrollWidth, clientWidth } = container;
     const isScrollable = scrollWidth > clientWidth;
     
-    setShowLeftArrow(isScrollable && scrollLeft > 5);
-    setShowRightArrow(isScrollable && scrollLeft < scrollWidth - clientWidth - 5);
+    // Only show arrows if content actually overflows
+    if (!isScrollable) {
+      setShowLeftArrow(false);
+      setShowRightArrow(false);
+      return;
+    }
+    
+    setShowLeftArrow(scrollLeft > 5);
+    setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 5);
   };
 
   // Update arrow visibility on scroll and resize
@@ -55,6 +62,13 @@ const Navigation = () => {
     const handleResize = () => {
       setTimeout(updateArrowVisibility, 100);
     };
+    
+    // Also listen for content changes that might affect scrollability
+    const resizeObserver = new ResizeObserver(() => {
+      setTimeout(updateArrowVisibility, 50);
+    });
+    
+    resizeObserver.observe(container);
 
     container.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
@@ -65,6 +79,7 @@ const Navigation = () => {
     return () => {
       container.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
+      resizeObserver.disconnect();
     };
   }, []);
 
