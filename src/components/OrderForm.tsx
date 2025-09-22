@@ -428,77 +428,105 @@ const OrderForm: React.FC<OrderFormProps> = ({
         )}
 
         {/* Order Items */}
-        <div className="space-y-3">
+        <div className="space-y-4">
           {orderItems.map((item, index) => (
-            <div key={index} className="rounded-lg p-3" style={{ backgroundColor: '#f1ece6' }}>
-              <div className="flex items-start justify-between gap-3">
+            <div key={index} className="rounded-xl p-4 shadow-sm border border-orange-100" style={{ backgroundColor: '#fefbf7' }}>
+              <div className="space-y-3">
+                {/* Item Header */}
                 <div className="flex-1 min-w-0">
-                  <h4 className="font-medium text-gray-900 text-sm">
+                  <h4 className="font-semibold text-gray-900 text-base leading-tight">
                     Nr. {item.menuItem.number} {item.menuItem.name}
                   </h4>
-                  
+                </div>
+
+                {/* Item Details */}
+                <div className="space-y-2">
                   {item.selectedSize && (
-                    <p className="text-xs text-blue-600 mt-1">
-                      Größe: {item.selectedSize.name}
+                    <div className="flex items-center gap-2">
+                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                        📏 {item.selectedSize.name}
                       {item.selectedSize.description && ` - ${item.selectedSize.description}`}
-                    </p>
+                      </span>
+                    </div>
                   )}
                   
                   {item.selectedPastaType && (
-                    <p className="text-xs text-yellow-600 mt-1">
-                      Nudelsorte: {item.selectedPastaType}
-                    </p>
+                    <div className="flex items-center gap-2">
+                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                        🍝 {item.selectedPastaType}
+                      </span>
+                    </div>
                   )}
                   
                   {item.selectedSauce && (
-                    <p className="text-xs text-red-600 mt-1">
-                      Soße: {item.selectedSauce}
-                    </p>
+                    <div className="flex items-center gap-2">
+                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                        🥄 {item.selectedSauce}
+                      </span>
+                    </div>
                   )}
                   
                   {item.selectedIngredients && item.selectedIngredients.length > 0 && (
-                    <p className="text-xs text-green-600 mt-1">
-                      Zutaten: {item.selectedIngredients.join(', ')}
-                    </p>
+                    <div className="space-y-1">
+                      <p className="text-xs font-medium text-gray-600">🥬 Zutaten:</p>
+                      <div className="flex flex-wrap gap-1">
+                        {item.selectedIngredients.map((ingredient, idx) => (
+                          <span key={idx} className="inline-flex items-center px-2 py-0.5 rounded-full text-xs bg-green-100 text-green-800">
+                            {ingredient}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   )}
                   
                   {item.selectedExtras && item.selectedExtras.length > 0 && (
-                    <p className="text-xs text-purple-600 mt-1">
-                      Extras: {item.selectedExtras.join(', ')} (+{(item.selectedExtras.length * 1.00).toFixed(2)}€)
-                    </p>
+                    <div className="space-y-1">
+                      <p className="text-xs font-medium text-gray-600">➕ Extras (+{(item.selectedExtras.length * 1.00).toFixed(2)}€):</p>
+                      <div className="flex flex-wrap gap-1">
+                        {item.selectedExtras.map((extra, idx) => (
+                          <span key={idx} className="inline-flex items-center px-2 py-0.5 rounded-full text-xs bg-purple-100 text-purple-800">
+                            {extra}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   )}
-                  
-                  <p className="text-sm font-bold text-orange-600 mt-2">
-                    {(calculateItemPrice(item) * item.quantity).toFixed(2).replace('.', ',')} €
-                  </p>
                 </div>
                 
-                <div className="flex items-center gap-2 flex-shrink-0">
+                {/* Price and Controls */}
+                <div className="flex items-center justify-between pt-2 border-t border-orange-200">
+                  <div className="text-lg font-bold text-orange-600">
+                    {(calculateItemPrice(item) * item.quantity).toFixed(2).replace('.', ',')} €
+                  </div>
+                  
+                  <div className="flex items-center gap-3">
+                    {/* Quantity Controls */}
+                    <div className="flex items-center gap-2 bg-white rounded-lg p-1 shadow-sm border border-orange-200">
                   <button
                     onClick={() => handleQuantityChange(item, item.quantity - 1)}
-                    className="w-8 h-8 rounded-full flex items-center justify-center transition-colors"
-                    style={{ backgroundColor: '#f1ece6' }}
-                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e8e0d6'}
-                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#f1ece6'}
+                        className="w-8 h-8 rounded-md bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
                   >
                     <Minus className="w-4 h-4" />
                   </button>
                   
-                  <span className="w-8 text-center font-medium">{item.quantity}</span>
+                      <span className="w-8 text-center font-semibold text-gray-900">{item.quantity}</span>
                   
                   <button
                     onClick={() => handleQuantityChange(item, item.quantity + 1)}
-                    className="w-8 h-8 rounded-full bg-orange-500 hover:bg-orange-600 text-white flex items-center justify-center transition-colors"
+                        className="w-8 h-8 rounded-md bg-orange-500 hover:bg-orange-600 text-white flex items-center justify-center transition-colors"
                   >
                     <Plus className="w-4 h-4" />
                   </button>
-                  
+                    </div>
+                    
+                    {/* Remove Button */}
                   <button
                     onClick={() => handleRemoveItem(item)}
-                    className="w-8 h-8 rounded-full bg-red-500 hover:bg-red-600 text-white flex items-center justify-center transition-colors ml-2"
+                      className="w-8 h-8 rounded-md bg-red-500 hover:bg-red-600 text-white flex items-center justify-center transition-colors shadow-sm"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -506,72 +534,89 @@ const OrderForm: React.FC<OrderFormProps> = ({
         </div>
 
         {/* Order Summary */}
-        <div className="rounded-lg p-4 space-y-2" style={{ backgroundColor: '#f1ece6' }}>
-          <div className="flex justify-between text-sm">
-            <span>Zwischensumme:</span>
-            <span className="font-medium">{subtotal.toFixed(2).replace('.', ',')} €</span>
+        <div className="rounded-xl p-5 space-y-3 bg-gradient-to-br from-orange-50 to-yellow-50 border-2 border-orange-200 shadow-sm">
+          <h3 className="font-semibold text-gray-900 text-base mb-3 flex items-center gap-2">
+            💰 Bestellübersicht
+          </h3>
+          
+          <div className="space-y-2">
+            <div className="flex justify-between items-center py-1">
+              <span className="text-gray-700">Zwischensumme:</span>
+              <span className="font-semibold text-gray-900">{subtotal.toFixed(2).replace('.', ',')} €</span>
+            </div>
+            
+            {deliveryFee > 0 && (
+              <div className="flex justify-between items-center py-1">
+                <span className="text-gray-700">Liefergebühr:</span>
+                <span className="font-semibold text-gray-900">{deliveryFee.toFixed(2).replace('.', ',')} €</span>
+              </div>
+            )}
           </div>
           
-          {deliveryFee > 0 && (
-            <div className="flex justify-between text-sm">
-              <span>Liefergebühr:</span>
-              <span className="font-medium">{deliveryFee.toFixed(2).replace('.', ',')} €</span>
-            </div>
-          )}
-          
-          <div className="border-t pt-2">
-            <div className="flex justify-between text-lg font-bold text-orange-600">
-              <span>Gesamtbetrag:</span>
-              <span>{total.toFixed(2).replace('.', ',')} €</span>
+          <div className="border-t-2 border-orange-300 pt-3 mt-3">
+            <div className="flex justify-between items-center">
+              <span className="text-lg font-bold text-gray-900">Gesamtbetrag:</span>
+              <span className="text-xl font-bold text-orange-600 bg-white px-3 py-1 rounded-lg shadow-sm">
+                {total.toFixed(2).replace('.', ',')} €
+              </span>
             </div>
           </div>
           
           {!canOrder && minOrderMessage && (
-            <div className="text-sm text-red-600 p-2 rounded" style={{ backgroundColor: '#f1ece6' }}>
-              {minOrderMessage}
+            <div className="mt-3 p-3 bg-red-50 border border-red-200 rounded-lg">
+              <p className="text-sm text-red-700 font-medium flex items-center gap-2">
+                ⚠️ {minOrderMessage}
+              </p>
             </div>
           )}
         </div>
 
         {/* Order Form */}
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           {/* Order Type */}
-          <div className="space-y-2">
-            <label className="block text-sm font-medium text-gray-700">
-              Bestellart *
+          <div className="space-y-3">
+            <label className="block text-base font-semibold text-gray-900 flex items-center gap-2">
+              📦 Bestellart *
             </label>
-            <div className="grid grid-cols-2 gap-2">
-              <label className="flex items-center space-x-2 cursor-pointer p-3 rounded-lg" style={{ backgroundColor: '#f1ece6' }}>
+            <div className="grid grid-cols-2 gap-3">
+              <label className="flex items-center space-x-3 cursor-pointer p-4 rounded-xl border-2 transition-all hover:bg-orange-50" 
+                     style={{ 
+                       backgroundColor: watchOrderType === 'pickup' ? '#fff7ed' : '#fefbf7',
+                       borderColor: watchOrderType === 'pickup' ? '#fb923c' : '#fed7aa'
+                     }}>
                 <input
                   type="radio"
                   value="pickup"
                   {...register('orderType')}
-                  className="text-orange-500 focus:ring-orange-500"
+                  className="text-orange-500 focus:ring-orange-500 w-4 h-4"
                 />
-                <span className="text-sm">🏃‍♂️ Abholung</span>
+                <span className="text-sm font-medium">🏃‍♂️ Abholung</span>
               </label>
-              <label className="flex items-center space-x-2 cursor-pointer p-3 rounded-lg" style={{ backgroundColor: '#f1ece6' }}>
+              <label className="flex items-center space-x-3 cursor-pointer p-4 rounded-xl border-2 transition-all hover:bg-orange-50"
+                     style={{ 
+                       backgroundColor: watchOrderType === 'delivery' ? '#fff7ed' : '#fefbf7',
+                       borderColor: watchOrderType === 'delivery' ? '#fb923c' : '#fed7aa'
+                     }}>
                 <input
                   type="radio"
                   value="delivery"
                   {...register('orderType')}
-                  className="text-orange-500 focus:ring-orange-500"
+                  className="text-orange-500 focus:ring-orange-500 w-4 h-4"
                 />
-                <span className="text-sm">🚗 Lieferung</span>
+                <span className="text-sm font-medium">🚗 Lieferung</span>
               </label>
             </div>
           </div>
 
           {/* Delivery Zone */}
           {watchOrderType === 'delivery' && (
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700">
-                Liefergebiet *
+            <div className="space-y-3">
+              <label className="block text-base font-semibold text-gray-900 flex items-center gap-2">
+                🗺️ Liefergebiet *
               </label>
               <select
                 {...register('deliveryZone')}
-                className="w-full rounded-lg focus:border-orange-500 focus:ring-orange-500"
-                style={{ borderColor: '#f1ece6', backgroundColor: '#f1ece6' }}
+                className="w-full rounded-xl border-2 border-orange-200 focus:border-orange-500 focus:ring-orange-500 p-3 text-sm bg-white"
               >
                 <option value="">Bitte wählen...</option>
                 {Object.entries(DELIVERY_ZONES).map(([key, zone]) => (
@@ -581,76 +626,79 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 ))}
               </select>
               {errors.deliveryZone && (
-                <p className="text-sm text-red-600">{errors.deliveryZone.message}</p>
+                <p className="text-sm text-red-600 flex items-center gap-1">
+                  ⚠️ {errors.deliveryZone.message}
+                </p>
               )}
             </div>
           )}
 
           {/* Delivery Address */}
           {watchOrderType === 'delivery' && (
-            <div className="grid grid-cols-2 gap-2">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Straße *
-                </label>
-                <input
-                  type="text"
-                  {...register('street')}
-                  className="w-full rounded-lg focus:border-orange-500 focus:ring-orange-500"
-                  style={{ borderColor: '#f1ece6', backgroundColor: '#f1ece6' }}
-                  placeholder="Musterstraße"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Hausnummer *
-                </label>
-                <input
-                  type="text"
-                  {...register('houseNumber')}
-                  className="w-full rounded-lg focus:border-orange-500 focus:ring-orange-500"
-                  style={{ borderColor: '#f1ece6', backgroundColor: '#f1ece6' }}
-                  placeholder="123"
-                />
-              </div>
-              <div className="col-span-2">
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Postleitzahl *
-                </label>
-                <input
-                  type="text"
-                  {...register('postcode')}
-                  className="w-full rounded-lg focus:border-orange-500 focus:ring-orange-500"
-                  style={{ borderColor: '#f1ece6', backgroundColor: '#f1ece6' }}
-                  placeholder="12345"
-                />
+            <div className="space-y-3">
+              <label className="block text-base font-semibold text-gray-900 flex items-center gap-2">
+                📍 Lieferadresse *
+              </label>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <input
+                    type="text"
+                    {...register('street')}
+                    className="w-full rounded-xl border-2 border-orange-200 focus:border-orange-500 focus:ring-orange-500 p-3 text-sm bg-white"
+                    placeholder="Straße"
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    {...register('houseNumber')}
+                    className="w-full rounded-xl border-2 border-orange-200 focus:border-orange-500 focus:ring-orange-500 p-3 text-sm bg-white"
+                    placeholder="Nr."
+                  />
+                </div>
+                <div className="col-span-2">
+                  <input
+                    type="text"
+                    {...register('postcode')}
+                    className="w-full rounded-xl border-2 border-orange-200 focus:border-orange-500 focus:ring-orange-500 p-3 text-sm bg-white"
+                    placeholder="Postleitzahl"
+                  />
+                </div>
               </div>
             </div>
           )}
 
           {/* Delivery Time */}
-          <div className="space-y-2">
-            <label className="block text-sm font-medium text-gray-700">
-              Lieferzeit *
+          <div className="space-y-3">
+            <label className="block text-base font-semibold text-gray-900 flex items-center gap-2">
+              ⏰ Lieferzeit *
             </label>
-            <div className="space-y-2">
-              <label className="flex items-center space-x-2 cursor-pointer p-3 rounded-lg" style={{ backgroundColor: '#f1ece6' }}>
+            <div className="space-y-3">
+              <label className="flex items-center space-x-3 cursor-pointer p-4 rounded-xl border-2 transition-all hover:bg-orange-50"
+                     style={{ 
+                       backgroundColor: watchDeliveryTime === 'asap' ? '#fff7ed' : '#fefbf7',
+                       borderColor: watchDeliveryTime === 'asap' ? '#fb923c' : '#fed7aa'
+                     }}>
                 <input
                   type="radio"
                   value="asap"
                   {...register('deliveryTime')}
-                  className="text-orange-500 focus:ring-orange-500"
+                  className="text-orange-500 focus:ring-orange-500 w-4 h-4"
                 />
-                <span className="text-sm">⚡ So schnell wie möglich</span>
+                <span className="text-sm font-medium">⚡ So schnell wie möglich</span>
               </label>
-              <label className="flex items-center space-x-2 cursor-pointer p-3 rounded-lg" style={{ backgroundColor: '#f1ece6' }}>
+              <label className="flex items-center space-x-3 cursor-pointer p-4 rounded-xl border-2 transition-all hover:bg-orange-50"
+                     style={{ 
+                       backgroundColor: watchDeliveryTime === 'specific' ? '#fff7ed' : '#fefbf7',
+                       borderColor: watchDeliveryTime === 'specific' ? '#fb923c' : '#fed7aa'
+                     }}>
                 <input
                   type="radio"
                   value="specific"
                   {...register('deliveryTime')}
-                  className="text-orange-500 focus:ring-orange-500"
+                  className="text-orange-500 focus:ring-orange-500 w-4 h-4"
                 />
-                <span className="text-sm">🕐 Zu bestimmter Zeit</span>
+                <span className="text-sm font-medium">🕐 Zu bestimmter Zeit</span>
               </label>
             </div>
             
@@ -658,97 +706,101 @@ const OrderForm: React.FC<OrderFormProps> = ({
               <input
                 type="time"
                 {...register('specificTime')}
-                className="w-full rounded-lg focus:border-orange-500 focus:ring-orange-500"
-                style={{ borderColor: '#f1ece6', backgroundColor: '#f1ece6' }}
+                className="w-full rounded-xl border-2 border-orange-200 focus:border-orange-500 focus:ring-orange-500 p-3 text-sm bg-white"
                 min="12:00"
                 max="21:30"
               />
             )}
             {errors.specificTime && (
-              <p className="text-sm text-red-600">{errors.specificTime.message}</p>
+              <p className="text-sm text-red-600 flex items-center gap-1">
+                ⚠️ {errors.specificTime.message}
+              </p>
             )}
           </div>
 
           {/* Customer Information */}
-          <div className="space-y-3">
-            <h3 className="font-medium text-gray-900 flex items-center gap-2">
-              <User className="w-4 h-4" />
-              Ihre Kontaktdaten
+          <div className="space-y-4">
+            <h3 className="font-semibold text-gray-900 text-base flex items-center gap-2">
+              👤 Ihre Kontaktdaten
             </h3>
             
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Name *
-              </label>
-              <input
-                type="text"
-                {...register('name')}
-                className="w-full rounded-lg focus:border-orange-500 focus:ring-orange-500"
-                style={{ borderColor: '#f1ece6', backgroundColor: '#f1ece6' }}
-                placeholder="Ihr Name"
-              />
-              {errors.name && (
-                <p className="text-sm text-red-600">{errors.name.message}</p>
-              )}
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Telefonnummer *
-              </label>
-              <input
-                type="tel"
-                {...register('phone')}
-                className="w-full rounded-lg focus:border-orange-500 focus:ring-orange-500"
-                style={{ borderColor: '#f1ece6', backgroundColor: '#f1ece6' }}
-                placeholder="0123 456789"
-              />
-              {errors.phone && (
-                <p className="text-sm text-red-600">{errors.phone.message}</p>
-              )}
-            </div>
-            
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Anmerkungen (optional)
-              </label>
-              <textarea
-                {...register('note')}
-                rows={3}
-                className="w-full rounded-lg focus:border-orange-500 focus:ring-orange-500"
-                style={{ borderColor: '#f1ece6', backgroundColor: '#f1ece6' }}
-                placeholder="Besondere Wünsche, Allergien, etc."
-              />
+            <div className="space-y-3">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Name *
+                </label>
+                <input
+                  type="text"
+                  {...register('name')}
+                  className="w-full rounded-xl border-2 border-orange-200 focus:border-orange-500 focus:ring-orange-500 p-3 text-sm bg-white"
+                  placeholder="Ihr Name"
+                />
+                {errors.name && (
+                  <p className="text-sm text-red-600 mt-1 flex items-center gap-1">
+                    ⚠️ {errors.name.message}
+                  </p>
+                )}
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Telefonnummer *
+                </label>
+                <input
+                  type="tel"
+                  {...register('phone')}
+                  className="w-full rounded-xl border-2 border-orange-200 focus:border-orange-500 focus:ring-orange-500 p-3 text-sm bg-white"
+                  placeholder="0123 456789"
+                />
+                {errors.phone && (
+                  <p className="text-sm text-red-600 mt-1 flex items-center gap-1">
+                    ⚠️ {errors.phone.message}
+                  </p>
+                )}
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Anmerkungen (optional)
+                </label>
+                <textarea
+                  {...register('note')}
+                  rows={3}
+                  className="w-full rounded-xl border-2 border-orange-200 focus:border-orange-500 focus:ring-orange-500 p-3 text-sm bg-white resize-none"
+                  placeholder="Besondere Wünsche, Allergien, etc."
+                />
+              </div>
             </div>
           </div>
 
           {/* Submit Button */}
-          <button
-            type="submit"
-            disabled={!canOrder || orderItems.length === 0 || isSubmitting}
-            className={`w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center gap-2 transition-all ${
-              canOrder && orderItems.length > 0 && !isSubmitting
-                ? 'bg-green-500 hover:bg-green-600 text-white'
-                : 'text-gray-500 cursor-not-allowed'
-            }`}
-            style={!canOrder || orderItems.length === 0 || isSubmitting ? { backgroundColor: '#f1ece6' } : {}}
-          >
-            {isSubmitting ? (
-              <>
-                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                Bestellung wird gesendet...
-              </>
-            ) : (
-              <>
-                <Send className="w-5 h-5" />
-                Per WhatsApp bestellen
-              </>
-            )}
-          </button>
+          <div className="pt-2">
+            <button
+              type="submit"
+              disabled={!canOrder || orderItems.length === 0 || isSubmitting}
+              className={`w-full py-4 px-6 rounded-xl font-semibold text-base flex items-center justify-center gap-3 transition-all shadow-lg ${
+                canOrder && orderItems.length > 0 && !isSubmitting
+                  ? 'bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white transform hover:scale-[1.02] active:scale-[0.98]'
+                  : 'bg-gray-200 text-gray-500 cursor-not-allowed'
+              }`}
+            >
+              {isSubmitting ? (
+                <>
+                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                  Bestellung wird gesendet...
+                </>
+              ) : (
+                <>
+                  <Send className="w-5 h-5" />
+                  Per WhatsApp bestellen
+                </>
+              )}
+            </button>
+          </div>
         </form>
         
         {/* Bottom padding for mobile safe area */}
-        <div className="h-4"></div>
+        <div className="h-6"></div>
       </div>
     </div>
   );
