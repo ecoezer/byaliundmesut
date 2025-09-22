@@ -188,7 +188,7 @@ const Header: React.FC = memo(() => {
           <img 
             src="/Untitled-1.png" 
             alt="by Ali und Mesut Logo" 
-            className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full shadow-lg mb-3 object-cover border-4 border-orange-200"
+            className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full shadow-lg mb-3 object-cover border-4 border-orange-200"
           />
           <h1 className='text-2xl sm:text-3xl font-bold tracking-tighter text-gray-900 relative animate-fade-in text-center'>
             <span className='relative'>

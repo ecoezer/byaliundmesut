@@ -12,7 +12,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ searchQuery, onSearchChange }) =>
   };
 
   return (
-    <div className="relative w-full max-w-2xl">
+    <div className="relative w-full max-w-xl">
       <div className="relative">
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-orange-500 w-5 h-5" />
         <input
