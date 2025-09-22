@@ -532,11 +532,298 @@ function App() {
       <div className='fixed top-0 left-0 right-0 z-50 bg-white shadow-sm'>
         <div className="bg-white py-3">
           <div className="container mx-auto px-4 max-w-7xl lg:pr-80">
-            <div className="w-full">
-              <SearchBar 
-                searchQuery={searchQuery}
-                onSearchChange={setSearchQuery}
-              />
+            <div className="flex items-center gap-4">
+              <div className="flex-1">
+                <SearchBar 
+                  searchQuery={searchQuery}
+                  onSearchChange={setSearchQuery}
+                />
+              </div>
+              <div className="flex-shrink-0">
+                <img 
+                  src="/Untitled-1.png" 
+                  alt="by Ali und Mesut Logo" 
+                  className="h-10 w-10 rounded-full shadow-lg object-cover border-4 border-orange-200"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="border-b border-gray-200"></div>
+        <Navigation />
+      </div>
+
+      {/* Desktop Cart Sidebar */}
+      <div className='hidden lg:block fixed top-0 right-0 w-80 h-full bg-white shadow-xl z-[60] overflow-y-auto'>
+        <OrderForm
+          orderItems={items}
+          onRemoveItem={memoizedRemoveItem}
+          onUpdateQuantity={memoizedUpdateQuantity}
+          onClearCart={memoizedClearCart}
+        />
+      </div>
+
+      <div className='pt-24 lg:pr-80'>
+        <div className="lg:pr-80">
+          <Header />
+        </div>
+
+        <main className='container mx-auto px-6 py-6 max-w-5xl lg:max-w-none'>
+          {searchQuery.trim() && !hasSearchResults && (
+            <div className="text-center py-12">
+              <div className="bg-white rounded-xl shadow-lg p-8 max-w-md mx-auto">
+                <div className="text-6xl mb-4">🔍</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  Keine Ergebnisse gefunden
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Für "<span className="font-medium text-orange-600">{searchQuery}</span>" wurden keine Gerichte gefunden.
+                </p>
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg transition-colors"
+                >
+                  Suche zurücksetzen
+                </button>
+              </div>
+            </div>
+          )}
+          
+          {hasSearchResults && (
+            <div className='space-y-6'>
+              {renderMenuSection(
+                MENU_SECTIONS.FLEISCHGERICHTE,
+                'Fleischgerichte',
+                'nach Art eines Drehspießes (Erzeugnis eigener Art)\nAlle Fleischgerichte werden mit Eisbergsalat, Tomaten, Gurken, Zwiebeln und einer Soße Ihrer Wahl zubereitet.',
+                fleischgerichte
+              )}
+
+              {renderMenuSection(
+                MENU_SECTIONS.SNACKS,
+                'Snacks',
+                'Alle Burger werden mit frischem Salat, Ketchup und Burger-Dressing serviert.',
+                snacks
+              )}
+
+              {renderMenuSection(
+                MENU_SECTIONS.VEGETARISCHE_GERICHTE,
+                'Vegetarische Gerichte',
+                'Leckere vegetarische Pizzen und Gerichte ohne Fleisch',
+                vegetarischeGerichte
+              )}
+
+              {renderMenuSection(
+                MENU_SECTIONS.PIZZA,
+                'Pizza',
+                'Klassische Pizzen mit Fleisch - Alle Pizzen werden mit Tomatensoße und Käse zubereitet. Wählen Sie Ihre gewünschte Größe.',
+                pizzas
+              )}
+
+              {renderMenuSection(
+                'croques',
+                'Croques',
+                'Alle Croques werden mit Käse, Salat & Soße zubereitet.',
+                croques
+              )}
+
+              {renderMenuSection(
+                MENU_SECTIONS.SALATE,
+                'Salate',
+                'Alle Salate werden mit einem Dressing nach Wahl zubereitet!\n(z. B. Joghurt-, Balsamico- oder Essig-Öl-Dressing)',
+                salads
+              )}
+
+              <div id={MENU_SECTIONS.DIPS} className='scroll-mt-[6.5rem]'>
+                <MenuSection
+                  title='Dips & Soßen'
+                  items={filterItems(dips)}
+                  bgColor='bg-orange-500'
+                  onAddToOrder={memoizedAddItem}
+                />
+              </div>
+
+              <div id={MENU_SECTIONS.GETRAENKE} className='scroll-mt-[6.5rem]'>
+                <MenuSection
+                  title='Getränke'
+                  description='Der Verkauf von alkoholischen Getränken erfolgt gemäß dem Jugendschutzgesetz (JuSchG) nur an Personen ab 18 Jahren. Bitte halten Sie einen gültigen Ausweis bereit!'
+                  items={filterItems(drinks)}
+                  bgColor='bg-orange-500'
+                  onAddToOrder={memoizedAddItem}
+                />
+              </div>
+            </div>
+          )}
+          
+          {/* Add bottom padding for mobile cart button */}
+          <div className="h-24 lg:hidden" />
+        </main>
+
+        <Footer />
+      </div>
+
+      {renderScrollButtons()}
+      {renderMobileCartButton()}
+      {renderMobileCartSidebar()}
+    </div>
+  );
+}
+
+export default App;
+@@ .. @@
+      <div className='fixed top-0 left-0 right-0 z-50 bg-white shadow-sm'>
+        <div className="bg-white py-3">
+          <div className="container mx-auto px-4 max-w-7xl lg:pr-80">
+            <div className="flex items-center gap-4">
+              <div className="flex-1">
+                <SearchBar 
+                  searchQuery={searchQuery}
+                  onSearchChange={setSearchQuery}
+                />
+              </div>
+              <div className="flex-shrink-0">
+                <img 
+                  src="/Untitled-1.png" 
+                  alt="by Ali und Mesut Logo" 
+                  className="h-10 w-10 rounded-full shadow-lg object-cover border-4 border-orange-200"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="border-b border-gray-200"></div>
+        <Navigation />
+      </div>
+
+      {/* Desktop Cart Sidebar */}
+      <div className='hidden lg:block fixed top-0 right-0 w-80 h-full bg-white shadow-xl z-[60] overflow-y-auto'>
+        <OrderForm
+          orderItems={items}
+          onRemoveItem={memoizedRemoveItem}
+          onUpdateQuantity={memoizedUpdateQuantity}
+          onClearCart={memoizedClearCart}
+        />
+      </div>
+
+      <div className='pt-24 lg:pr-80'>
+        <div className="lg:pr-80">
+          <Header />
+        </div>
+
+        <main className='container mx-auto px-6 py-6 max-w-5xl lg:max-w-none'>
+          {searchQuery.trim() && !hasSearchResults && (
+            <div className="text-center py-12">
+              <div className="bg-white rounded-xl shadow-lg p-8 max-w-md mx-auto">
+                <div className="text-6xl mb-4">🔍</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  Keine Ergebnisse gefunden
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Für "<span className="font-medium text-orange-600">{searchQuery}</span>" wurden keine Gerichte gefunden.
+                </p>
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg transition-colors"
+                >
+                  Suche zurücksetzen
+                </button>
+              </div>
+            </div>
+          )}
+          
+          {hasSearchResults && (
+            <div className='space-y-6'>
+              {renderMenuSection(
+                MENU_SECTIONS.FLEISCHGERICHTE,
+                'Fleischgerichte',
+                'nach Art eines Drehspießes (Erzeugnis eigener Art)\nAlle Fleischgerichte werden mit Eisbergsalat, Tomaten, Gurken, Zwiebeln und einer Soße Ihrer Wahl zubereitet.',
+                fleischgerichte
+              )}
+
+              {renderMenuSection(
+                MENU_SECTIONS.SNACKS,
+                'Snacks',
+                'Alle Burger werden mit frischem Salat, Ketchup und Burger-Dressing serviert.',
+                snacks
+              )}
+
+              {renderMenuSection(
+                MENU_SECTIONS.VEGETARISCHE_GERICHTE,
+                'Vegetarische Gerichte',
+                'Leckere vegetarische Pizzen und Gerichte ohne Fleisch',
+                vegetarischeGerichte
+              )}
+
+              {renderMenuSection(
+                MENU_SECTIONS.PIZZA,
+                'Pizza',
+                'Klassische Pizzen mit Fleisch - Alle Pizzen werden mit Tomatensoße und Käse zubereitet. Wählen Sie Ihre gewünschte Größe.',
+                pizzas
+              )}
+
+              {renderMenuSection(
+                'croques',
+                'Croques',
+                'Alle Croques werden mit Käse, Salat & Soße zubereitet.',
+                croques
+              )}
+
+              {renderMenuSection(
+                MENU_SECTIONS.SALATE,
+                'Salate',
+                'Alle Salate werden mit einem Dressing nach Wahl zubereitet!\n(z. B. Joghurt-, Balsamico- oder Essig-Öl-Dressing)',
+                salads
+              )}
+
+              <div id={MENU_SECTIONS.DIPS} className='scroll-mt-[6.5rem]'>
+                <MenuSection
+                  title='Dips & Soßen'
+                  items={filterItems(dips)}
+                  bgColor='bg-orange-500'
+                  onAddToOrder={memoizedAddItem}
+                />
+              </div>
+
+              <div id={MENU_SECTIONS.GETRAENKE} className='scroll-mt-[6.5rem]'>
+                <MenuSection
+                  title='Getränke'
+                  description='Der Verkauf von alkoholischen Getränken erfolgt gemäß dem Jugendschutzgesetz (JuSchG) nur an Personen ab 18 Jahren. Bitte halten Sie einen gültigen Ausweis bereit!'
+                  items={filterItems(drinks)}
+                  bgColor='bg-orange-500'
+                  onAddToOrder={memoizedAddItem}
+                />
+              </div>
+            </div>
+          )}
+          
+          {/* Add bottom padding for mobile cart button */}
+          <div className="h-24 lg:hidden" />
+        </main>
+
+        <Footer />
+      </div>
+
+      {renderScrollButtons()}
+      {renderMobileCartButton()}
+      {renderMobileCartSidebar()}
+    </div>
+  );
+}
+
+export default App;
+            <div className="flex items-center gap-4">
+              <div className="flex-1">
+                <SearchBar 
+                  searchQuery={searchQuery}
+                  onSearchChange={setSearchQuery}
+                />
+              </div>
+              <div className="flex-shrink-0">
+                <img 
+                  src="/Untitled-1.png" 
+                  alt="by Ali und Mesut Logo" 
+                  className="h-10 w-10 rounded-full shadow-lg object-cover border-4 border-orange-200"
+                />
+              </div>
             </div>
           </div>
         </div>
