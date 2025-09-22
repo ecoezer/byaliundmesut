@@ -404,7 +404,7 @@ function App() {
               }
             } catch (error) {
               console.error('Error opening WhatsApp:', error);
-              itemText += ` - Extras: ${item.selectedExtras.join(', ')} (+${(item.selectedExtras.length * 1.00).toFixed(2)}€)`;
+              window.location.href = CONTACT_INFO.WHATSAPP_URL;
             }
           } else {
             window.open(CONTACT_INFO.WHATSAPP_URL, '_blank', 'noopener,noreferrer');

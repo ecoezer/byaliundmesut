@@ -378,7 +378,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
   }
 
   return (
-    <div className={`flex flex-col min-h-0 transition-all duration-3000 ${isClearing ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
+    <div className={`flex flex-col min-h-0 transition-all duration-2000 ${isClearing ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
       <div className="bg-orange-500 text-white p-4 sticky top-0 z-10">
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-bold flex items-center gap-2">
