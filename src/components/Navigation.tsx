@@ -129,26 +129,26 @@ const Navigation = () => {
   return (
     <div className="w-full bg-white border-b border-gray-200 sticky top-0 z-50 lg:pr-80">
       <div className="max-w-7xl mx-auto px-4 lg:pr-0 lg:max-w-none">
-        <div className="relative flex items-center h-16">
+        <div className="flex items-center h-16">
           
           {/* Left Arrow */}
           {isMobile && showLeftArrow && (
-            <button
-              onClick={() => scroll('left')}
-              className="absolute left-1 z-30 w-8 h-8 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors"
-              aria-label="Nach links scrollen"
-            >
-              <ChevronLeft className="h-4 w-4 text-gray-600" />
-            </button>
+            <div className="flex-shrink-0 pr-2">
+              <button
+                onClick={() => scroll('left')}
+                className="w-8 h-8 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors"
+                aria-label="Nach links scrollen"
+              >
+                <ChevronLeft className="h-4 w-4 text-gray-600" />
+              </button>
+            </div>
           )}
 
           {/* Navigation Items */}
           <div 
             ref={scrollContainerRef}
-            className="flex items-center justify-start gap-2 overflow-x-auto scrollbar-hide flex-1 lg:justify-center"
+            className="flex items-center justify-start gap-2 overflow-x-auto scrollbar-hide flex-1 lg:justify-center px-2"
             style={{ 
-              paddingLeft: isMobile && showLeftArrow ? '40px' : '16px',
-              paddingRight: isMobile && showRightArrow ? '40px' : '16px',
               scrollbarWidth: 'none', 
               msOverflowStyle: 'none',
               scrollSnapType: 'x mandatory'
@@ -176,16 +176,17 @@ const Navigation = () => {
 
           {/* Right Arrow */}
           {isMobile && showRightArrow && (
-            <button
-              onClick={() => scroll('right')}
-              className="absolute right-1 z-30 w-8 h-8 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors"
-              aria-label="Nach rechts scrollen"
-            >
-              <ChevronRight className="h-4 w-4 text-gray-600" />
-            </button>
+            <div className="flex-shrink-0 pl-2">
+              <button
+                onClick={() => scroll('right')}
+                className="w-8 h-8 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors"
+                aria-label="Nach rechts scrollen"
+              >
+                <ChevronRight className="h-4 w-4 text-gray-600" />
+              </button>
+            </div>
           )}
 
-          {/* Menu Icon (far right) */}
         </div>
       </div>
 
