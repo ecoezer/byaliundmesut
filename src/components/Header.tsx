@@ -2,8 +2,7 @@ import React, { memo, useMemo } from 'react';
 
 const Header: React.FC = memo(() => {
   return (
-    <header className='bg-white pt-12 border-b'>
-    </header>
+    null
   );
 });
 
