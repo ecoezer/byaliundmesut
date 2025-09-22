@@ -531,8 +531,8 @@ function App() {
     <div className='min-h-dvh bg-gray-50'>
       <div className='fixed top-0 left-0 right-0 z-50 bg-white shadow-sm'>
         <div className="bg-white py-3">
-          <div className="container mx-auto px-4 flex items-center justify-center lg:justify-between max-w-7xl">
-            <div className="flex justify-center">
+          <div className="container mx-auto px-4 max-w-7xl lg:pr-80">
+            <div className="w-full">
               <SearchBar 
                 searchQuery={searchQuery}
                 onSearchChange={setSearchQuery}
