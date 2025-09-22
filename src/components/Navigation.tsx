@@ -166,11 +166,6 @@ const Navigation = () => {
           )}
 
           {/* Menu Icon (far right) */}
-          <div className="absolute right-12 flex items-center">
-            <button className="p-2 text-gray-600 hover:text-gray-900 transition-colors">
-              <Menu className="h-5 w-5" />
-            </button>
-          </div>
         </div>
       </div>
 
