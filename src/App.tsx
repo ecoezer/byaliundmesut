@@ -558,6 +558,7 @@ function App() {
               onRemoveItem={memoizedRemoveItem}
               onUpdateQuantity={memoizedUpdateQuantity}
               onClearCart={memoizedClearCart}
+              onCloseMobileCart={closeMobileCart}
             />
           </div>
         </div>

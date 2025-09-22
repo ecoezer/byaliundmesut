@@ -27,6 +27,7 @@ interface OrderFormProps {
   onRemoveItem: (id: number, selectedSize?: any, selectedIngredients?: string[], selectedExtras?: string[], selectedPastaType?: string, selectedSauce?: string) => void;
   onUpdateQuantity: (id: number, quantity: number, selectedSize?: any, selectedIngredients?: string[], selectedExtras?: string[], selectedPastaType?: string, selectedSauce?: string) => void;
   onClearCart: () => void;
+  onCloseMobileCart?: () => void;
 }
 
 // Delivery zones with minimum order and delivery fee
@@ -93,7 +94,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
   orderItems, 
   onRemoveItem, 
   onUpdateQuantity, 
-  onClearCart 
+  onClearCart,
+  onCloseMobileCart
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isClearing, setIsClearing] = useState(false);
@@ -362,8 +364,13 @@ const OrderForm: React.FC<OrderFormProps> = ({
     setTimeout(() => {
       onClearCart();
       setIsClearing(false);
+      
+      // Close mobile cart if the callback is provided
+      if (onCloseMobileCart) {
+        onCloseMobileCart();
+      }
     }, 3000);
-  }, [onClearCart]);
+  }, [onClearCart, onCloseMobileCart]);
 
   if (orderItems.length === 0) {
     return (
