@@ -394,9 +394,6 @@ const OrderForm: React.FC<OrderFormProps> = ({
             <h2 className="text-xl font-bold flex items-center gap-2">
               Warenkorb
             </h2>
-            <button
-              onClick={handleClearCart}
-              disabled={isClearing}
             <div className="flex items-center gap-2">
               <button
                 onClick={handleClearCart}
@@ -406,12 +403,6 @@ const OrderForm: React.FC<OrderFormProps> = ({
               >
                 <Trash2 className="w-4 h-4" />
                 {isClearing ? 'Wird geleert...' : 'Leer'}
-              </button>
-              <button
-                onClick={closeMobileCart}
-                className="p-2 hover:bg-orange-600 rounded-full transition-colors"
-              >
-                <X className="w-6 h-6" />
               </button>
             </div>
           </div>
