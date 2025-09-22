@@ -392,13 +392,14 @@ const OrderForm: React.FC<OrderFormProps> = ({
         <div className="bg-orange-500 text-white p-4 sticky top-0 z-10">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold flex items-center gap-2">
+              <ShoppingCart className="w-5 h-5" />
               Warenkorb
             </h2>
             <div className="flex items-center gap-2">
               <button
                 onClick={handleClearCart}
                 disabled={isClearing}
-                className={`flex items-center gap-1 text-orange-100 hover:text-white hover:bg-orange-600/50 transition-all duration-200 px-2 py-1 rounded-lg text-sm font-medium ${isClearing ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`flex items-center gap-1 text-white bg-red-500 hover:bg-red-600 transition-all duration-200 px-3 py-1.5 rounded-lg text-sm font-medium shadow-md hover:shadow-lg ${isClearing ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105'}`}
                 title="Warenkorb leeren"
               >
                 <Trash2 className="w-4 h-4" />
