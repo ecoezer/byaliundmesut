@@ -101,6 +101,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isClearing, setIsClearing] = useState(false);
+  const [showAllItems, setShowAllItems] = useState(false);
 
   const {
     register,
@@ -374,6 +375,11 @@ const OrderForm: React.FC<OrderFormProps> = ({
     }, 3000);
   }, [onClearCart, onCloseMobileCart]);
 
+  // Determine which items to show
+  const shouldCollapse = orderItems.length > 2 && !hideTitle; // Only collapse on desktop (when hideTitle is false)
+  const itemsToShow = shouldCollapse && !showAllItems ? orderItems.slice(0, 2) : orderItems;
+  const hiddenItemsCount = shouldCollapse && !showAllItems ? orderItems.length - 2 : 0;
+
   if (orderItems.length === 0) {
     return (
       <div className="p-6 text-center">
@@ -429,7 +435,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
         {/* Order Items */}
         <div className="space-y-4">
-          {orderItems.map((item, index) => (
+          {itemsToShow.map((item, index) => (
             <div key={index} className="rounded-xl p-4 shadow-sm border border-orange-100" style={{ backgroundColor: '#fefbf7' }}>
               <div className="space-y-3">
                 {/* Item Header */}
@@ -531,6 +537,32 @@ const OrderForm: React.FC<OrderFormProps> = ({
               </div>
             </div>
           ))}
+
+          {/* Expand/Collapse Button */}
+          {shouldCollapse && (
+            <div className="text-center">
+              <button
+                onClick={() => setShowAllItems(!showAllItems)}
+                className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-orange-600 hover:text-orange-700 hover:bg-orange-50 rounded-lg transition-colors"
+              >
+                {showAllItems ? (
+                  <>
+                    <span>Weniger anzeigen</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                    </svg>
+                  </>
+                ) : (
+                  <>
+                    <span>Alle {orderItems.length} Artikel anzeigen ({hiddenItemsCount} weitere)</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </>
+                )}
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Order Summary */}
