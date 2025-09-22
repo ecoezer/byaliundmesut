@@ -413,11 +413,11 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
       {/* Clear cart button for mobile when title is hidden */}
       {hideTitle && (
-        <div className="bg-orange-500 text-white p-4 sticky top-0 z-10 flex justify-center">
+        <div className="p-4 sticky top-0 z-10 flex justify-center">
           <button
             onClick={handleClearCart}
             disabled={isClearing}
-            className={`flex items-center gap-2 text-orange-100 hover:text-white hover:bg-orange-600/50 transition-all duration-200 px-3 py-2 rounded-lg text-sm font-medium ${isClearing ? 'opacity-50 cursor-not-allowed' : ''}`}
+            className={`flex items-center gap-2 text-red-600 hover:text-red-700 hover:bg-red-50 transition-all duration-200 px-3 py-2 rounded-lg text-sm font-medium ${isClearing ? 'opacity-50 cursor-not-allowed' : ''}`}
             title="Warenkorb leeren"
           >
             <Trash2 className="w-4 h-4" />
