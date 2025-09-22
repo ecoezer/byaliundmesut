@@ -493,11 +493,11 @@ function App() {
       <button
         id="mobile-cart-button"
         onClick={toggleMobileCart}
-        className={`fixed bottom-4 left-4 right-4 bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-full shadow-xl flex items-center justify-center z-50 transition-all duration-300 transform hover:scale-105 ${cartAnimation ? 'animate-cart-mobile-pulse' : ''}`}
+        className={`fixed bottom-4 left-4 right-4 bg-orange-500 text-white py-3 px-6 rounded-full shadow-xl flex items-center justify-center z-50 transition-all duration-300 transform hover:scale-101`}
         style={{ marginBottom: 'env(safe-area-inset-bottom)' }}
       >
         <div className="relative flex-shrink-0">
-          <div className="w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+          <div className={`w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center ${cartAnimation ? 'animate-cart-mobile-pulse' : ''}`}>
             <ShoppingCart className={`w-5 h-5 ${cartAnimation ? 'animate-cart-shake' : ''}`} />
           </div>
           {totalItemsCount > 0 && (

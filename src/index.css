@@ -164,6 +164,10 @@
   animation: cart-mobile-pulse 0.4s ease-out;
 }
 
+.hover\:scale-101:hover {
+  transform: scale(1.01);
+}
+
 .animate-success-flash {
   animation: success-flash 0.6s ease-out;
 }
