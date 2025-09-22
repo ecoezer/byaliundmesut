@@ -378,7 +378,13 @@ const OrderForm: React.FC<OrderFormProps> = ({
   // Determine which items to show
   const shouldCollapse = orderItems.length > 2 && !hideTitle; // Only collapse on desktop (when hideTitle is false)
   const itemsToShow = shouldCollapse && !showAllItems ? orderItems.slice(0, 2) : orderItems;
-  const hiddenItemsCount = shouldCollapse && !showAllItems ? orderItems.length - 2 : 0;
+  
+  // Calculate total items count (including quantities)
+  const totalItemsCount = orderItems.reduce((sum, item) => sum + item.quantity, 0);
+  const visibleItemsCount = shouldCollapse && !showAllItems 
+    ? itemsToShow.reduce((sum, item) => sum + item.quantity, 0)
+    : totalItemsCount;
+  const hiddenItemsCount = shouldCollapse && !showAllItems ? totalItemsCount - visibleItemsCount : 0;
 
   if (orderItems.length === 0) {
     return (
@@ -554,7 +560,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
                   </>
                 ) : (
                   <>
-                    <span>Alle {orderItems.length} Artikel anzeigen ({hiddenItemsCount} weitere)</span>
+                    <span>Alle {totalItemsCount} Artikel anzeigen ({hiddenItemsCount} weitere)</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
