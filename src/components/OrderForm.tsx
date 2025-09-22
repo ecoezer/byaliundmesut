@@ -96,6 +96,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
   onClearCart 
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isClearing, setIsClearing] = useState(false);
 
   const {
     register,
@@ -354,6 +355,16 @@ const OrderForm: React.FC<OrderFormProps> = ({
     );
   }, [onRemoveItem]);
 
+  const handleClearCart = useCallback(() => {
+    setIsClearing(true);
+    
+    // After 3 seconds, actually clear the cart
+    setTimeout(() => {
+      onClearCart();
+      setIsClearing(false);
+    }, 3000);
+  }, [onClearCart]);
+
   if (orderItems.length === 0) {
     return (
       <div className="p-6 text-center">
@@ -367,7 +378,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
   }
 
   return (
-    <div className="flex flex-col min-h-0">
+    <div className={`flex flex-col min-h-0 transition-all duration-3000 ${isClearing ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
       <div className="bg-orange-500 text-white p-4 sticky top-0 z-10">
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-bold flex items-center gap-2">
@@ -378,12 +389,13 @@ const OrderForm: React.FC<OrderFormProps> = ({
         {/* Separate clear cart button with more spacing */}
         <div className="mt-4 pt-3 border-t border-orange-400/30">
           <button
-            onClick={onClearCart}
-            className="flex items-center gap-2 text-orange-100 hover:text-white hover:bg-orange-600/50 transition-all duration-200 px-3 py-2 rounded-lg text-sm font-medium w-full justify-center"
+            onClick={handleClearCart}
+            disabled={isClearing}
+            className={`flex items-center gap-2 text-orange-100 hover:text-white hover:bg-orange-600/50 transition-all duration-200 px-3 py-2 rounded-lg text-sm font-medium w-full justify-center ${isClearing ? 'opacity-50 cursor-not-allowed' : ''}`}
             title="Warenkorb leeren"
           >
             <Trash2 className="w-4 h-4" />
-            Warenkorb leeren
+            {isClearing ? 'Wird geleert...' : 'Warenkorb leeren'}
           </button>
         </div>
       </div>

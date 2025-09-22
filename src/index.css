@@ -172,6 +172,11 @@
   animation: success-flash 0.6s ease-out;
 }
 html {
+/* Custom duration classes for cart clearing animation */
+.duration-3000 {
+  transition-duration: 3000ms;
+}
+
   scroll-behavior: smooth;
   scroll-padding-top: 6.5rem;
 }
