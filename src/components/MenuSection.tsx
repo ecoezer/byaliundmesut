@@ -383,10 +383,10 @@ const MenuSection: React.FC<MenuSectionProps> = ({ title, description, subTitle,
           <h2 className="text-lg font-bold">{title}</h2>
         </div>
         {description && (
-          <p className="text-sm opacity-90 leading-relaxed">{description}</p>
+          <p className="text-sm opacity-90 leading-relaxed mt-0.5">{description}</p>
         )}
         {subTitle && (
-          <p className="text-sm opacity-80 mt-1 italic">{subTitle}</p>
+          <p className="text-sm opacity-80 mt-0.5 italic">{subTitle}</p>
         )}
       </div>
 
