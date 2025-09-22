@@ -4,6 +4,7 @@ import MenuSection from './components/MenuSection';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
 import OrderForm from './components/OrderForm';
+import SearchBar from './components/SearchBar';
 import {
   salads,
   dips,
@@ -15,7 +16,7 @@ import {
   croques,
 } from './data/menuItems';
 import { useCartStore } from './store/cart.store';
-import { ShoppingCart, ChevronUp, ChevronDown, X } from 'lucide-react';
+import { ShoppingCart, ChevronUp, ChevronDown, X, Phone } from 'lucide-react';
 import { MenuItem, PizzaSize } from './types';
 
 // =================== CONSTANTS ===================
@@ -80,6 +81,7 @@ function App() {
   const [showScrollButtons, setShowScrollButtons] = useState(false);
   const [showMobileCart, setShowMobileCart] = useState(false);
   const [cartAnimation, setCartAnimation] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   // =================== EFFECTS ===================
   useEffect(() => {
@@ -343,96 +345,17 @@ function App() {
   }, [showMobileCart, isMobile]);
 
   // =================== RENDER HELPER FUNCTIONS ===================
-  const renderAnimatedBackground = () => (
-    <div className='absolute inset-0 opacity-30'>
-      <div className='absolute inset-0 bg-gradient-to-r from-yellow-300/20 via-pink-300/20 to-blue-300/20 animate-pulse'></div>
-      <div className='absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1500 ease-out'></div>
-    </div>
-  );
-
-  const renderFloatingParticles = () => (
-    <div className='absolute inset-0 overflow-hidden pointer-events-none'>
-      <div className='absolute top-2 left-[10%] w-1 h-1 bg-yellow-300 rounded-full animate-bounce opacity-70' 
-           style={{animationDelay: '0s', animationDuration: '2s'}}></div>
-      <div className='absolute top-4 right-[15%] w-1.5 h-1.5 bg-pink-300 rounded-full animate-bounce opacity-60' 
-           style={{animationDelay: '0.5s', animationDuration: '2.5s'}}></div>
-      <div className='absolute bottom-3 left-[20%] w-1 h-1 bg-blue-300 rounded-full animate-bounce opacity-80' 
-           style={{animationDelay: '1s', animationDuration: '1.8s'}}></div>
-      <div className='absolute bottom-2 right-[25%] w-1.5 h-1.5 bg-purple-300 rounded-full animate-bounce opacity-50' 
-           style={{animationDelay: '1.5s', animationDuration: '2.2s'}}></div>
-    </div>
-  );
-
-  const renderWhatsAppIcon = () => (
-    <div className='relative flex-shrink-0'>
-      <div className='relative animate-bounce'>
-        <svg
-          viewBox='0 0 24 24'
-          className='w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 xl:w-9 xl:h-9 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 ease-out filter drop-shadow-lg'
-          fill='currentColor'
-          aria-hidden="true"
-        >
-          <path d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z' />
-        </svg>
-        
-        <div className='absolute inset-0 rounded-full border-2 border-white/50 animate-ping'></div>
-        <div className='absolute inset-0 rounded-full border-2 border-yellow-300/60 animate-ping' 
-             style={{animationDelay: '0.5s'}}></div>
-      </div>
-
-      <div className='absolute -top-1 -right-1 text-xs animate-bounce' 
-           style={{animationDelay: '0.2s'}}>🎉</div>
-    </div>
-  );
-
-  const renderWhatsAppButton = () => (
-    <div className={BUTTON_CLASSES.whatsapp}>
-      {renderAnimatedBackground()}
-      {renderFloatingParticles()}
-
-      <a
-        href={CONTACT_INFO.WHATSAPP_URL}
-        onClick={(e) => {
-          e.preventDefault();
-          const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-          
-          if (isMobile) {
-            try {
-              const whatsappWindow = window.open(CONTACT_INFO.WHATSAPP_URL, '_blank');
-              if (!whatsappWindow || whatsappWindow.closed || typeof whatsappWindow.closed === 'undefined') {
-                window.location.href = CONTACT_INFO.WHATSAPP_URL;
-              }
-            } catch (error) {
-              console.error('Error opening WhatsApp:', error);
-              window.location.href = CONTACT_INFO.WHATSAPP_URL;
-            }
-          } else {
-            window.open(CONTACT_INFO.WHATSAPP_URL, '_blank', 'noopener,noreferrer');
-          }
-        }}
-        className='flex items-center justify-center space-x-1 sm:space-x-2 md:space-x-3 lg:space-x-4 font-bold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl hover:text-green-100 transition-all w-full text-center px-1 sm:px-2 group relative z-10'
-        aria-label="Jetzt per WhatsApp bestellen"
-        role="button"
-      >
-        {renderWhatsAppIcon()}
-
-        <div className='flex flex-col items-center justify-center gap-0.5 sm:gap-1 min-w-0 flex-1 text-center'>
-          <div className='flex flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-1 md:gap-2 lg:gap-3 w-full'>
-            <span className='text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-extrabold tracking-wide group-hover:tracking-wider transition-all duration-300 whitespace-nowrap transform group-hover:scale-105 drop-shadow-md text-center'>
-              Jetzt bestellen! 🍕
-            </span>
-            <span className='text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-bold tracking-wide group-hover:tracking-wider transition-all duration-300 whitespace-nowrap transform group-hover:scale-105 bg-white/20 px-1 sm:px-2 py-0.5 rounded-full backdrop-blur-sm text-center mx-auto sm:mx-0'>
-              📞 {CONTACT_INFO.PHONE}
-            </span>
-          </div>
-          
-          <div className='text-xs sm:text-xs md:text-sm opacity-90 animate-pulse font-medium text-center'>
-            Klick für leckeres Essen! 🚀
-          </div>
-        </div>
-      </a>
-    </div>
-  );
+  // Filter menu items based on search query
+  const filterItems = useCallback((items: MenuItem[]) => {
+    if (!searchQuery.trim()) return items;
+    
+    const query = searchQuery.toLowerCase().trim();
+    return items.filter(item => 
+      item.name.toLowerCase().includes(query) ||
+      item.description?.toLowerCase().includes(query) ||
+      item.number.toString().includes(query)
+    );
+  }, [searchQuery]);
 
   const renderCartButton = () => (
     <button
@@ -585,7 +508,39 @@ function App() {
   return (
     <div className='min-h-dvh bg-gray-50'>
       <div className='fixed top-0 left-0 right-0 z-50 bg-white shadow-sm'>
-        {renderWhatsAppButton()}
+        <div className="bg-white border-b border-gray-200 py-3">
+          <div className="container mx-auto px-4 flex items-center justify-between">
+            <SearchBar 
+              searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
+            />
+            <a
+              href={CONTACT_INFO.WHATSAPP_URL}
+              className="ml-4 flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                
+                if (isMobile) {
+                  try {
+                    const whatsappWindow = window.open(CONTACT_INFO.WHATSAPP_URL, '_blank');
+                    if (!whatsappWindow || whatsappWindow.closed || typeof whatsappWindow.closed === 'undefined') {
+                      window.location.href = CONTACT_INFO.WHATSAPP_URL;
+                    }
+                  } catch (error) {
+                    console.error('Error opening WhatsApp:', error);
+                    window.location.href = CONTACT_INFO.WHATSAPP_URL;
+                  }
+                } else {
+                  window.open(CONTACT_INFO.WHATSAPP_URL, '_blank', 'noopener,noreferrer');
+                }
+              }}
+            >
+              <Phone className="w-4 h-4" />
+              <span className="hidden sm:inline">Bestellen</span>
+            </a>
+          </div>
+        </div>
         <Navigation />
       </div>
 
@@ -599,7 +554,7 @@ function App() {
         />
       </div>
 
-      <div className='pt-32 lg:pr-80'>
+      <div className='pt-24 lg:pr-80'>
         <div className="lg:pr-80">
           <Header />
         </div>
@@ -610,48 +565,48 @@ function App() {
                 MENU_SECTIONS.FLEISCHGERICHTE,
                 'Fleischgerichte',
                 'nach Art eines Drehspießes (Erzeugnis eigener Art)\nAlle Fleischgerichte werden mit Eisbergsalat, Tomaten, Gurken, Zwiebeln und einer Soße Ihrer Wahl zubereitet.',
-                fleischgerichte
+                filterItems(fleischgerichte)
               )}
 
               {renderMenuSection(
                 MENU_SECTIONS.SNACKS,
                 'Snacks',
                 'Alle Burger werden mit frischem Salat, Ketchup und Burger-Dressing serviert.',
-                snacks
+                filterItems(snacks)
               )}
 
               {renderMenuSection(
                 MENU_SECTIONS.VEGETARISCHE_GERICHTE,
                 'Vegetarische Gerichte',
                 'Leckere vegetarische Pizzen und Gerichte ohne Fleisch',
-                vegetarischeGerichte
+                filterItems(vegetarischeGerichte)
               )}
 
               {renderMenuSection(
                 MENU_SECTIONS.PIZZA,
                 'Pizza',
                 'Klassische Pizzen mit Fleisch - Alle Pizzen werden mit Tomatensoße und Käse zubereitet. Wählen Sie Ihre gewünschte Größe.',
-                pizzas
+                filterItems(pizzas)
               )}
 
               {renderMenuSection(
                 'croques',
                 'Croques',
                 'Alle Croques werden mit Käse, Salat & Soße zubereitet.',
-                croques
+                filterItems(croques)
               )}
 
               {renderMenuSection(
                 MENU_SECTIONS.SALATE,
                 'Salate',
                 'Alle Salate werden mit einem Dressing nach Wahl zubereitet!\n(z. B. Joghurt-, Balsamico- oder Essig-Öl-Dressing)',
-                salads
+                filterItems(salads)
               )}
 
               <div id={MENU_SECTIONS.DIPS} className='scroll-mt-[6.5rem]'>
                 <MenuSection
                   title='Dips & Soßen'
-                  items={dips}
+                  items={filterItems(dips)}
                   bgColor='bg-orange-500'
                   onAddToOrder={memoizedAddItem}
                 />
@@ -661,7 +616,7 @@ function App() {
                 <MenuSection
                   title='Getränke'
                   description='Der Verkauf von alkoholischen Getränken erfolgt gemäß dem Jugendschutzgesetz (JuSchG) nur an Personen ab 18 Jahren. Bitte halten Sie einen gültigen Ausweis bereit!'
-                  items={drinks}
+                  items={filterItems(drinks)}
                   bgColor='bg-orange-500'
                   onAddToOrder={memoizedAddItem}
                 />
