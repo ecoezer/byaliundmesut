@@ -508,11 +508,11 @@ function App() {
         </div>
         <div className="flex-1 flex justify-center">
           <span className="font-medium text-lg">
-            Warenkorb ansehen - {items.reduce((sum, item) => {
+            Warenkorb ansehen ({items.reduce((sum, item) => {
               const basePrice = item.selectedSize ? item.selectedSize.price : item.menuItem.price;
               const extrasPrice = (item.selectedExtras?.length || 0) * 1.00;
               return sum + ((basePrice + extrasPrice) * item.quantity);
-            }, 0).toFixed(2).replace('.', ',')} €
+            }, 0).toFixed(2).replace('.', ',')} €)
           </span>
         </div>
       </button>
