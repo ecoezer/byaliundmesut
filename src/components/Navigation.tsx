@@ -147,8 +147,8 @@ const Navigation = () => {
             ref={scrollContainerRef}
             className="flex items-center justify-center gap-2 overflow-x-auto scrollbar-hide flex-1 lg:justify-center"
             style={{ 
-              paddingLeft: showLeftArrow ? '56px' : '16px',
-              paddingRight: showRightArrow ? '56px' : '16px',
+              paddingLeft: showLeftArrow ? '60px' : '16px',
+              paddingRight: showRightArrow ? '60px' : '16px',
               scrollbarWidth: 'none', 
               msOverflowStyle: 'none',
               scrollSnapType: 'x mandatory'
