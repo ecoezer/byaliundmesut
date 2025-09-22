@@ -28,6 +28,7 @@ interface OrderFormProps {
   onUpdateQuantity: (id: number, quantity: number, selectedSize?: any, selectedIngredients?: string[], selectedExtras?: string[], selectedPastaType?: string, selectedSauce?: string) => void;
   onClearCart: () => void;
   onCloseMobileCart?: () => void;
+  hideTitle?: boolean;
 }
 
 // Delivery zones with minimum order and delivery fee
@@ -95,7 +96,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
   onRemoveItem, 
   onUpdateQuantity, 
   onClearCart,
-  onCloseMobileCart
+  onCloseMobileCart,
+  hideTitle = false
 }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isClearing, setIsClearing] = useState(false);
@@ -386,26 +388,28 @@ const OrderForm: React.FC<OrderFormProps> = ({
 
   return (
     <div className={`flex flex-col min-h-0 transition-all duration-2000 ${isClearing ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
-      <div className="bg-orange-500 text-white p-4 sticky top-0 z-10">
-        <div className="flex items-center justify-between">
-          <h2 className="text-xl font-bold flex items-center gap-2">
-            Warenkorb
-          </h2>
+      {!hideTitle && (
+        <div className="bg-orange-500 text-white p-4 sticky top-0 z-10">
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-bold flex items-center gap-2">
+              Warenkorb
+            </h2>
+          </div>
+          
+          {/* Separate clear cart button with more spacing */}
+          <div className="mt-4 pt-3 border-t border-orange-400/30">
+            <button
+              onClick={handleClearCart}
+              disabled={isClearing}
+              className={`flex items-center gap-2 text-orange-100 hover:text-white hover:bg-orange-600/50 transition-all duration-200 px-3 py-2 rounded-lg text-sm font-medium w-full justify-center ${isClearing ? 'opacity-50 cursor-not-allowed' : ''}`}
+              title="Warenkorb leeren"
+            >
+              <Trash2 className="w-4 h-4" />
+              {isClearing ? 'Wird geleert...' : 'Warenkorb leeren'}
+            </button>
+          </div>
         </div>
-        
-        {/* Separate clear cart button with more spacing */}
-        <div className="mt-4 pt-3 border-t border-orange-400/30">
-          <button
-            onClick={handleClearCart}
-            disabled={isClearing}
-            className={`flex items-center gap-2 text-orange-100 hover:text-white hover:bg-orange-600/50 transition-all duration-200 px-3 py-2 rounded-lg text-sm font-medium w-full justify-center ${isClearing ? 'opacity-50 cursor-not-allowed' : ''}`}
-            title="Warenkorb leeren"
-          >
-            <Trash2 className="w-4 h-4" />
-            {isClearing ? 'Wird geleert...' : 'Warenkorb leeren'}
-          </button>
-        </div>
-      </div>
+      )}
 
       <div className="flex-1 p-4 space-y-4 overflow-y-auto">
         {/* Order Items */}

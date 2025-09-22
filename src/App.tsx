@@ -559,6 +559,7 @@ function App() {
               onUpdateQuantity={memoizedUpdateQuantity}
               onClearCart={memoizedClearCart}
               onCloseMobileCart={closeMobileCart}
+              hideTitle={true}
             />
           </div>
         </div>
