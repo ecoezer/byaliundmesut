@@ -525,11 +525,11 @@ function App() {
         {/* Mobile Cart Sidebar */}
         <div 
           id="mobile-cart-sidebar"
-          className="fixed bottom-0 left-0 right-0 bg-white rounded-t-xl shadow-xl z-50 max-h-[80vh] flex flex-col animate-slide-up"
+          className="fixed bottom-0 left-0 right-0 bg-white rounded-t-xl shadow-xl z-50 max-h-[85vh] flex flex-col animate-slide-up"
           style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
         >
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b bg-orange-500 text-white rounded-t-xl">
+          <div className="flex items-center justify-between p-4 border-b bg-orange-500 text-white rounded-t-xl flex-shrink-0">
             <h2 className="text-xl font-bold flex items-center gap-2">
               <ShoppingCart className="w-6 h-6" />
               Warenkorb ({totalItemsCount})
@@ -543,7 +543,7 @@ function App() {
           </div>
           
           {/* Cart Content */}
-          <div className="flex-1 overflow-hidden">
+          <div className="flex-1 overflow-y-auto min-h-0">
             <OrderForm
               orderItems={items}
               onRemoveItem={memoizedRemoveItem}

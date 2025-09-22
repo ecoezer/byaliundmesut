@@ -367,7 +367,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
   }
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="flex flex-col min-h-0">
       <div className="bg-orange-500 text-white p-4 sticky top-0 z-10">
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-bold flex items-center gap-2">
@@ -383,7 +383,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      <div className="flex-1 p-4 space-y-4 overflow-y-auto">
         {/* Order Items */}
         <div className="space-y-3">
           {orderItems.map((item, index) => (
@@ -691,6 +691,9 @@ const OrderForm: React.FC<OrderFormProps> = ({
             )}
           </button>
         </form>
+        
+        {/* Bottom padding for mobile safe area */}
+        <div className="h-4"></div>
       </div>
     </div>
   );
