@@ -397,12 +397,23 @@ const OrderForm: React.FC<OrderFormProps> = ({
             <button
               onClick={handleClearCart}
               disabled={isClearing}
-              className={`flex items-center gap-2 text-orange-100 hover:text-white hover:bg-orange-600/50 transition-all duration-200 px-3 py-2 rounded-lg text-sm font-medium ${isClearing ? 'opacity-50 cursor-not-allowed' : ''}`}
-              title="Warenkorb leeren"
-            >
-              <Trash2 className="w-4 h-4" />
-              {isClearing ? 'Wird geleert...' : 'Warenkorb leeren'}
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handleClearCart}
+                disabled={isClearing}
+                className={`flex items-center gap-1 text-orange-100 hover:text-white hover:bg-orange-600/50 transition-all duration-200 px-2 py-1 rounded-lg text-sm font-medium ${isClearing ? 'opacity-50 cursor-not-allowed' : ''}`}
+                title="Warenkorb leeren"
+              >
+                <Trash2 className="w-4 h-4" />
+                {isClearing ? 'Wird geleert...' : 'Leer'}
+              </button>
+              <button
+                onClick={closeMobileCart}
+                className="p-2 hover:bg-orange-600 rounded-full transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
           </div>
         </div>
       )}
