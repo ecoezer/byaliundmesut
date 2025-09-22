@@ -476,7 +476,10 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 <div className="flex items-center gap-2 flex-shrink-0">
                   <button
                     onClick={() => handleQuantityChange(item, item.quantity - 1)}
-                    className="w-8 h-8 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors"
+                    className="w-8 h-8 rounded-full flex items-center justify-center transition-colors"
+                    style={{ backgroundColor: '#f1ece6' }}
+                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e8e0d6'}
+                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#f1ece6'}
                   >
                     <Minus className="w-4 h-4" />
                   </button>
@@ -503,7 +506,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         </div>
 
         {/* Order Summary */}
-        <div className="bg-gray-50 rounded-lg p-4 space-y-2">
+        <div className="rounded-lg p-4 space-y-2" style={{ backgroundColor: '#f1ece6' }}>
           <div className="flex justify-between text-sm">
             <span>Zwischensumme:</span>
             <span className="font-medium">{subtotal.toFixed(2).replace('.', ',')} €</span>
@@ -524,7 +527,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
           </div>
           
           {!canOrder && minOrderMessage && (
-            <div className="text-sm text-red-600 bg-red-50 p-2 rounded">
+            <div className="text-sm text-red-600 p-2 rounded" style={{ backgroundColor: '#f1ece6' }}>
               {minOrderMessage}
             </div>
           )}
@@ -567,7 +570,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
               </label>
               <select
                 {...register('deliveryZone')}
-                className="w-full rounded-lg border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                className="w-full rounded-lg focus:border-orange-500 focus:ring-orange-500"
+                style={{ borderColor: '#f1ece6', backgroundColor: '#f1ece6' }}
               >
                 <option value="">Bitte wählen...</option>
                 {Object.entries(DELIVERY_ZONES).map(([key, zone]) => (
@@ -592,7 +596,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 <input
                   type="text"
                   {...register('street')}
-                  className="w-full rounded-lg border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                  className="w-full rounded-lg focus:border-orange-500 focus:ring-orange-500"
+                  style={{ borderColor: '#f1ece6', backgroundColor: '#f1ece6' }}
                   placeholder="Musterstraße"
                 />
               </div>
@@ -603,7 +608,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 <input
                   type="text"
                   {...register('houseNumber')}
-                  className="w-full rounded-lg border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                  className="w-full rounded-lg focus:border-orange-500 focus:ring-orange-500"
+                  style={{ borderColor: '#f1ece6', backgroundColor: '#f1ece6' }}
                   placeholder="123"
                 />
               </div>
@@ -614,7 +620,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 <input
                   type="text"
                   {...register('postcode')}
-                  className="w-full rounded-lg border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                  className="w-full rounded-lg focus:border-orange-500 focus:ring-orange-500"
+                  style={{ borderColor: '#f1ece6', backgroundColor: '#f1ece6' }}
                   placeholder="12345"
                 />
               </div>
@@ -651,7 +658,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
               <input
                 type="time"
                 {...register('specificTime')}
-                className="w-full rounded-lg border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                className="w-full rounded-lg focus:border-orange-500 focus:ring-orange-500"
+                style={{ borderColor: '#f1ece6', backgroundColor: '#f1ece6' }}
                 min="12:00"
                 max="21:30"
               />
@@ -675,7 +683,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
               <input
                 type="text"
                 {...register('name')}
-                className="w-full rounded-lg border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                className="w-full rounded-lg focus:border-orange-500 focus:ring-orange-500"
+                style={{ borderColor: '#f1ece6', backgroundColor: '#f1ece6' }}
                 placeholder="Ihr Name"
               />
               {errors.name && (
@@ -690,7 +699,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
               <input
                 type="tel"
                 {...register('phone')}
-                className="w-full rounded-lg border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                className="w-full rounded-lg focus:border-orange-500 focus:ring-orange-500"
+                style={{ borderColor: '#f1ece6', backgroundColor: '#f1ece6' }}
                 placeholder="0123 456789"
               />
               {errors.phone && (
@@ -705,7 +715,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
               <textarea
                 {...register('note')}
                 rows={3}
-                className="w-full rounded-lg border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                className="w-full rounded-lg focus:border-orange-500 focus:ring-orange-500"
+                style={{ borderColor: '#f1ece6', backgroundColor: '#f1ece6' }}
                 placeholder="Besondere Wünsche, Allergien, etc."
               />
             </div>
@@ -718,8 +729,9 @@ const OrderForm: React.FC<OrderFormProps> = ({
             className={`w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center gap-2 transition-all ${
               canOrder && orderItems.length > 0 && !isSubmitting
                 ? 'bg-green-500 hover:bg-green-600 text-white'
-                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'text-gray-500 cursor-not-allowed'
             }`}
+            style={!canOrder || orderItems.length === 0 || isSubmitting ? { backgroundColor: '#f1ece6' } : {}}
           >
             {isSubmitting ? (
               <>
