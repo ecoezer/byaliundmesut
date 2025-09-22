@@ -377,7 +377,7 @@ const MenuSection: React.FC<MenuSectionProps> = ({ title, description, subTitle,
 
   return (
     <section className={`mb-8 ${title === 'Fleischgerichte' ? 'mt-8' : ''}`}>
-      <div className={`${bgColor} text-white ${title === 'Fleischgerichte' ? 'p-2' : 'p-3'} rounded-t-xl`}>
+      <div className={`${bgColor} text-white p-2 rounded-t-xl`}>
         <div className="flex items-center gap-2 mb-1">
           <ChefHat className="w-5 h-5" />
           <h2 className="text-lg font-bold">{title}</h2>
