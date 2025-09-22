@@ -128,7 +128,7 @@ const Navigation = () => {
 
   return (
     <div className="w-full bg-white border-b border-gray-200 sticky top-0 z-50 lg:pr-80">
-      <div className="max-w-7xl mx-auto px-4 lg:pr-0">
+      <div className="max-w-7xl mx-auto px-4 lg:pr-0 lg:max-w-none">
         <div className="relative flex items-center h-16">
           
           {/* Left Arrow */}
@@ -145,7 +145,7 @@ const Navigation = () => {
           {/* Navigation Items */}
           <div 
             ref={scrollContainerRef}
-            className="flex items-center gap-2 overflow-x-auto scrollbar-hide flex-1"
+            className="flex items-center justify-center gap-2 overflow-x-auto scrollbar-hide flex-1 lg:justify-center"
             style={{ 
               paddingLeft: showLeftArrow ? '48px' : '12px',
               paddingRight: showRightArrow ? '48px' : '12px'

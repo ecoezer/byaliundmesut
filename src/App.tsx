@@ -509,14 +509,14 @@ function App() {
     <div className='min-h-dvh bg-gray-50'>
       <div className='fixed top-0 left-0 right-0 z-50 bg-white shadow-sm'>
         <div className="bg-white py-3">
-          <div className="container mx-auto px-4 flex items-center justify-between">
+          <div className="container mx-auto px-4 flex items-center justify-center lg:justify-between max-w-7xl">
             <SearchBar 
               searchQuery={searchQuery}
               onSearchChange={setSearchQuery}
             />
             <a
               href={CONTACT_INFO.WHATSAPP_URL}
-              className="ml-4 flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors"
+              className="ml-4 flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors flex-shrink-0"
               onClick={(e) => {
                 e.preventDefault();
                 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);

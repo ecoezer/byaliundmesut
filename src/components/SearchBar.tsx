@@ -12,7 +12,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ searchQuery, onSearchChange }) =>
   };
 
   return (
-    <div className="relative flex-1 max-w-2xl">
+    <div className="relative flex-1 max-w-2xl mx-auto lg:mx-0">
       <div className="relative">
         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
         <input
@@ -20,7 +20,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ searchQuery, onSearchChange }) =>
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Suche nach Gerichten, Zutaten oder Nummern..."
-          className="w-full pl-10 pr-10 py-2.5 border-2 border-gray-200 rounded-full focus:border-orange-500 focus:ring-2 focus:ring-orange-200 focus:outline-none transition-all bg-gray-50 hover:bg-white"
+          className="w-full pl-10 pr-10 py-2.5 border-2 border-gray-200 rounded-full focus:border-orange-500 focus:ring-2 focus:ring-orange-200 focus:outline-none transition-all bg-gray-50 hover:bg-white text-center lg:text-left"
         />
         {searchQuery && (
           <button
@@ -34,7 +34,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ searchQuery, onSearchChange }) =>
       </div>
       
       {searchQuery && (
-        <div className="absolute top-full left-0 right-0 mt-1 text-sm text-gray-600 bg-white px-3 py-2 rounded-lg shadow-sm border">
+        <div className="absolute top-full left-1/2 transform -translate-x-1/2 lg:left-0 lg:transform-none mt-1 text-sm text-gray-600 bg-white px-3 py-2 rounded-lg shadow-sm border whitespace-nowrap">
           Suche nach: "<span className="font-medium text-orange-600">{searchQuery}</span>"
         </div>
       )}
