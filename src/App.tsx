@@ -43,7 +43,7 @@ const CART_SELECTORS = [
 const BUTTON_CLASSES = {
   whatsapp: 'bg-gradient-to-r from-green-400 via-emerald-500 via-green-500 to-teal-400 text-white py-2 sm:py-3 md:py-4 px-2 sm:px-3 md:px-4 relative overflow-hidden group shadow-lg',
   cart: 'fixed top-2 sm:top-3 md:top-4 right-2 sm:right-4 md:right-6 lg:right-8 xl:right-12 hover:scale-110 active:scale-95 transition-all duration-300 ease-out drop-shadow-lg border-2 border-white/80 rounded-xl p-1.5 sm:p-2 md:p-2.5 bg-white/10 backdrop-blur-sm group/cart cursor-pointer z-50',
-  cart: 'fixed top-2 sm:top-3 md:top-4 right-2 sm:right-4 md:right-6 lg:right-8 xl:right-12 hover:scale-110 active:scale-95 transition-all duration-300 ease-out drop-shadow-lg border-2 border-white/80 rounded-xl p-1 sm:p-1.5 md:p-1.5 bg-white/10 backdrop-blur-sm group/cart cursor-pointer z-50',
+  cart: 'fixed top-2 sm:top-3 md:top-4 right-2 sm:right-4 md:right-6 lg:right-8 xl:right-12 hover:scale-105 transition-transform duration-200 ease-out drop-shadow-lg border-2 border-white/80 rounded-xl p-1 sm:p-1.5 md:p-1.5 bg-white/10 backdrop-blur-sm group/cart cursor-pointer z-50',
   scrollButton: 'fixed right-2 sm:right-4 md:right-6 lg:right-8 xl:right-12 w-10 h-10 sm:w-12 sm:h-12 bg-orange-500 hover:bg-orange-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center z-40 border-2 border-white/50 hover:scale-110 active:scale-95'
 };
 
@@ -443,6 +443,7 @@ function App() {
       className={`${BUTTON_CLASSES.cart} ${cartAnimation ? 'animate-cart-added' : ''}`}
     >
       <ShoppingCart className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover/cart:animate-bounce ${cartAnimation ? 'animate-cart-shake' : ''}`} aria-hidden="true" />
+      <ShoppingCart className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ${cartAnimation ? 'animate-cart-shake' : ''}`} aria-hidden="true" />
       
       <span id="cart-count" className="sr-only">
         {totalItemsCount} Artikel im Warenkorb
